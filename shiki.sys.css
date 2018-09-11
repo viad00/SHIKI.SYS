@@ -26,8 +26,8 @@
      woff2 version converted from ttf using cli tool,
      see https://int10h.org/oldschool-pc-fonts/
   */
-  src: url(https://raw.githubusercontent.com/viad00/SHIKI.SYS/PxPlus_IBM_VGA9.woff2) format("woff2"),
-       url(https://raw.githubusercontent.com/viad00/SHIKI.SYS/PxPlus_IBM_VGA9.ttf) format("truetype");
+  src: url(https://raw.githubusercontent.com/viad00/SHIKI.SYS/master/PxPlus_IBM_VGA9.woff2) format("woff2"),
+       url(https://raw.githubusercontent.com/viad00/SHIKI.SYS/master/PxPlus_IBM_VGA9.ttf) format("truetype");
        /* Originally used VGA8, but later changed to VGA9 */
 }
 
