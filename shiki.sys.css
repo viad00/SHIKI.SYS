@@ -1,0 +1,951 @@
+/*
+ ______     __  __     __     __  __    __         ______     __  __     ______
+/\  ___\   /\ \_\ \   /\ \   /\ \/ /   /\ \       /\  ___\   /\ \_\ \   /\  ___\
+\ \___  \  \ \  __ \  \ \ \  \ \  _"-. \ \ \   __ \ \___  \  \ \____ \  \ \___  \
+ \/\_____\  \ \_\ \_\  \ \_\  \ \_\ \_\ \ \_\ /\_\ \/\_____\  \/\_____\  \/\_____\
+  \/_____/   \/_/\/_/   \/_/   \/_/\/_/  \/_/ \/_/  \/_____/   \/_____/   \/_____/
+                                         __               _         _____  ___
+                                        / /  __ __  _  __(_)__ ____/ / _ \/ _ \
+                                       / _ \/ // / | |/ / / _ `/ _  / // / // /
+                                      /_.__/\_, /  |___/_/\_,_/\_,_/\___/\___/
+                                           /___/
+
+------------------------------------ SHIKI.SYS ------------------------------------
+-------------- A theme to make Shikimori look like it's from DOS era --------------
+-----------------------------------------------------------------------------------
+------------------- GitHub: https://github.com/viad00/SHIKI.SYS -------------------
+---------------------- Shikimori: https://shikimori.org/VIad ----------------------
+-----------------------------------------------------------------------------------
+*/
+
+/* Set font */
+@font-face {
+  font-family: IBM_VGA8;
+  /*
+     These fonts aren't mine, they are from The Ultimate Oldschool PC Font Pack,
+     woff2 version converted from ttf using cli tool,
+     see https://int10h.org/oldschool-pc-fonts/
+  */
+  src: url(https://raw.githubusercontent.com/viad00/SHIKI.SYS/PxPlus_IBM_VGA9.woff2) format("woff2"),
+       url(https://raw.githubusercontent.com/viad00/SHIKI.SYS/PxPlus_IBM_VGA9.ttf) format("truetype");
+       /* Originally used VGA8, but later changed to VGA9 */
+}
+
+/* Screen-specific */
+/* background color on wide-screens */
+body {
+  background: #000084;
+}
+@media screen and (max-width: 1024px) {
+    body {
+        background: navy;
+    }
+}
+
+/* Actions captions on mobile devices */
+@media screen and (max-width: 480px) and (orientation: portrait) {
+    .c-actions .new_comment:after,
+    .c-actions .new_review:after,
+    .c-actions .fav-add:after,
+    .c-actions .edit:after {
+      color: #fefe54;
+  }
+}
+
+/* Search caption on wide-screens */
+@media only screen and (min-width: 1025px) {
+  .b-main_search ul.popup {
+    background: #bbbbbb;
+  }
+}
+
+/* Main body */
+.l-page {
+  background: #000084;
+  color: #bbbbbb;
+  font-family: IBM_VGA8;
+}
+
+span {
+  color: #bbbbbb;
+}
+
+h1, header.head h1 {
+  color: #ffffff !important;
+  font-family: IBM_VGA8 !important;
+}
+
+.l-footer .copyright,
+.l-footer .links {
+  font-family: IBM_VGA8;
+}
+
+/* Links */
+.l-page a {
+  color: #fefe54 !important;
+  text-decoration: none !important;
+}
+
+.l-page a:hover,
+.l-page a:focus {
+  color: #fefe54;
+  background: #aa5500;
+}
+
+/* Top menu */
+.l-top_menu, .to-top-fix {
+  background: #bbbbbb;
+  font-family: IBM_VGA8;
+}
+
+.l-top_menu a, .to-top-fix a {
+  color: #000000 !important;
+  font-size: 16px !important;
+}
+
+.l-top_menu a:hover, .to-top-fix a:hover {
+  color: #ffffff !important;
+}
+
+.menu-items > .entry > .contest {
+  background: #00aaaa !important;
+  border: 2px solid #000000 !important;
+}
+
+.menu-items > .entry > .contest:hover {
+  background: #ffffff !important;
+}
+
+.menu-items > .entry > .contest:before {
+  content: "ok" !important;
+  font-family: IBM_VGA8 !important;
+}
+
+.menu-items>.entry:hover {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    text-decoration: none;
+}
+
+.menu-items>.entry:hover > a {
+    color: #ffffff !important;
+}
+
+.entry > span {
+  color: #000000;
+}
+
+.entry:hover > span {
+  color: #ffffff;
+}
+
+.entry.info>a:before {
+  content: "i" !important;
+  font-family: IBM_VGA8 !important;
+}
+
+.entry.calendar>a:before {
+  content: "CA" !important;
+  font-family: IBM_VGA8 !important;
+}
+
+.headline, .midheadline, .subheadline {
+  background: #00aaaa;
+  padding: 20px 20px;
+  margin: 20px 0 20px;
+}
+
+.logo {
+  background: none !important;
+}
+
+.logo:before {
+  content: "SHIKIMORI";
+  font-size: 22px;
+}
+
+.logo:hover {
+  color: #000084;
+}
+
+.b-main_search .
+{
+  background-color: #cfcfcf;
+  border: 2px solid #000000;
+}
+
+.b-main_search .input input {
+  font-family: IBM_VGA8 !important;
+}
+
+.b-options-floated {
+  background: #bbbbbb;
+  border: 2px solid #000000;
+  box-shadow: 0 0 0 5px, 11px 13px 0 4px black;
+}
+
+.b-options-floated a {
+  padding: 4px;
+  color: #000000 !important;
+  font-size: 12px;
+}
+
+.b-options-floated span {
+  color: #000000 !important;
+  font-size: 12px;
+}
+
+.b-options-floated span:before {
+  color: #000000 !important;
+  font-size: 12px;
+}
+
+.b-options-floated span:after {
+  color: #000000 !important;
+  font-size: 12px;
+}
+
+.b-options-floated a:hover,
+.b-options-floated a:focus {
+  color: #ffffff !important;
+  background: #000000;
+}
+
+.b-breadcrumbs a:hover,
+.b-breadcrumbs a:focus {
+  background: #000000;
+}
+
+
+.l-top_menu .submenu {
+  background: #bbbbbb;
+}
+
+.l-top_menu .submenu > .entry {
+  background: #bbbbbb;
+  font-family: IBM_VGA8;
+}
+
+.l-top_menu .submenu > .entry:hover {
+  background: #000000;
+  font-family: IBM_VGA8;
+}
+
+.b-main_search ul.popup li {
+  background: #bbbbbb;
+  font-family: IBM_VGA8;
+  color: #000000;
+}
+
+.b-main_search ul.popup li:hover,
+.b-main_search ul.popup li.active {
+  background: #000000;
+  color: #ffffff;
+}
+
+.l-top_menu .menu-userbox .arrow-container .arrow-down {
+  border-color: #000000 transparent transparent transparent;
+}
+
+.avatar > img {
+  border: 2px solid #000000;
+  box-shadow: 3px 3px 0 #000000;
+}
+
+.l-top_menu .menu-items>.entry.selected, .l-top_menu .menu-items>.entry:hover {
+  background: #cccccc;
+}
+
+/* Buttons and etc */
+.b-form input[type=submit], .b-button {
+  font-family: IBM_VGA8;
+  color: #000000;
+  background: #bbbbbb;
+  padding: 10px 10px;
+  box-shadow: 10px 10px 0 #000000;
+  margin-bottom: 10px;
+}
+
+.b-form input[type=submit]:hover, .b-form input[type=submit]:focus, .b-button:hover {
+  color: #ffffff;
+  text-decoration: none;
+  background: #555555;
+  outline: 0;
+}
+
+.b-form input[type=submit]:active, .b-button:active {
+  box-shadow: 0 0 0;
+}
+
+.cancel {
+  background: #666666;
+  padding: 10px 10px;
+  box-shadow: 10px 10px 0 #000000;
+  font-family: IBM_VGA8;
+}
+
+input {
+  border: 2px solid #000000;
+}
+
+input, select, button, textarea {
+  font-family: IBM_VGA8;
+}
+
+.b-input input, .b-input textarea {
+  background: #bbbbbb;
+  color: #000000;
+  box-shadow: 3px 3px 0 #000000;
+}
+
+.b-input input[type=file], .b-input textarea[type=file] {
+  background: #00aaaa;
+}
+
+.b-input select {
+  color: black;
+}
+
+/* User list */
+.p-user_rates-index .list-lines .selectable:hover {
+  color: black;
+  background: #00aaaa;
+}
+
+.p-user_rates-index .list-lines .selectable:hover .index span,
+.p-user_rates-index .list-lines .selectable:hover .num span {
+  color: black;
+}
+
+.b-block_list li {
+  color: #bbbbbb;
+  font-family: IBM_VGA8;
+}
+
+.p-user_rates-index .list-groups .summary.lines {
+  color: #ffffff;
+  font-family: IBM_VGA8;
+}
+
+.p-user_rates-index .list-lines tr td .ongoing {
+  color: #00ff00;
+}
+
+.p-user_rates-index .list-lines tr td .anons {
+    color: #FF00ff;
+}
+
+.p-user_rates-index .list-lines tr td .episodes_total {
+    color: #bbbbbb;
+    font-size: 12px;
+}
+
+.p-user_rates-index .l-content .order-control {
+    color: #bbbbbb;
+}
+
+.b-list_switchers .switcher.lines:before {
+  content: "L";
+  font-family: IBM_VGA8;
+}
+
+.b-list_switchers .switcher.posters:before {
+  content: "P";
+  font-family: IBM_VGA8;
+}
+
+header.head .misc, header.head a.edit {
+  font-family: IBM_VGA8;
+}
+
+.b-collection_search .field input {
+  background: #bbbbbb;
+  font-family: IBM_VGA8;
+  color: #000000;
+  border: 2px solid #000000;
+  box-shadow: 10px 10px 0 #000000;
+}
+
+.b-collection_search .field input::placeholder {
+  color: #111111;
+}
+
+/* User page */
+.avatar center a img {
+  box-shadow: 10px 10px 0 #000000;
+}
+
+.b-stats_bar.anime .bar .first {
+  background: blue;
+}
+
+.b-stats_bar.anime .bar .second {
+  background: cyan;
+  color: black;
+}
+
+.b-stats_bar.manga .bar .first {
+  background: violet;
+}
+
+.b-stats_bar.manga .bar .second {
+  background: pink;
+  color: black;
+}
+
+.b-stats_bar .title {
+  color: #bbbbbb;
+}
+
+.p-profiles-show .profile-content .activity .title,
+.bar.vertical .line .x_label {
+  color: #bbbbbb;
+}
+
+.bar.vertical .line .bar-container .bar{
+  background: gold;
+}
+
+.bar.simple .bar.s0,
+.bar.simple .bar.s1,
+.bar.simple .bar.s2,
+.bar.simple .bar.s3{
+  background: #00aaaa;
+}
+
+.bar.vertical .line .x_label {
+  bottom: -25px;
+  font-size: 12px;
+  color: white;
+}
+
+.bar.vertical .line .bar-container .value {
+  color: black;
+}
+
+.bar.simple .bar:hover.s0,
+.bar.simple .bar:hover.s1,
+.bar.simple .bar:hover.s2,
+.bar.simple .bar:hover.s3 {
+  background: white;
+}
+
+.bar.horizontal .line .bar-container .value {
+color: black;
+}
+
+.b-catalog_entry .cover .misc span {
+  color: #bbbbbb;
+}
+
+.b-shiki_editor .body .editor textarea {
+  background: #bbbbbb;
+  font-family: IBM_VGA8;
+  color: black;
+  border: 2px solid black;
+}
+
+.b-shiki_editor .body .editor textarea::placeholder {
+  color: black;
+}
+
+a.b-link_button {
+  color: #000000 !important;
+}
+
+.b-link_button {
+  box-shadow: 10px 10px 0 #000000;
+}
+
+/* Main page */
+.blue {
+  color: cyan;
+}
+
+.p-dashboards-show .c-content .options .option {
+  color: lightblue;
+}
+
+.b-hot_topics {
+  background: #888888;
+}
+
+.b-hot_topics .topic.subject {
+  color: white;
+}
+
+.b-link > span {
+  color: #fefe54;
+}
+
+.p-dashboards-show .c-my_list {
+  background: #777777;
+  color: black;
+  border: 2px solid black;
+  box-shadow: 10px 10px 0 #000000;
+}
+
+.p-dashboards .user_list .list-change .note {
+  color: black;
+}
+
+.title > span,
+.p-dashboards .user_list .list-type>.title .switch, .p-dashboards .user_list .history>.title .switch {
+  color: #fefe54;
+}
+
+.b-catalog_entry .cover .image-decor .image-cutter {
+  box-shadow: 5px 5px 0 #000000;
+}
+
+.b-shiki_wall {
+  background: #000000;
+  box-shadow: 15px 15px 0 #000000;
+}
+
+.tooltip-inner {
+  background: navy;
+  color: #bbbbbb;
+  font-family: IBM_VGA8;
+}
+
+/* catalog tooltip */
+.b-catalog_entry-tooltip .inner .additional-images .link .title {
+  color: #bbbbbb;
+}
+
+.b-catalog_entry-tooltip .inner .rating {
+  font-family: IBM_VGA8;
+}
+
+.b-catalog_entry-tooltip .inner .rating .text {
+  color: #bbbbbb;
+}
+
+.b-height_shortener .shade {
+  background: none;
+}
+
+/* Anime/Manga info */
+
+.b-entry-info .line .value {
+  color: white;
+}
+
+.b-rate .text-score, .b-rate .score-notice {
+  color: white;
+  font-family: IBM_VGA8;
+}
+
+.p-animes-show .studio-logo, .p-mangas-show .studio-logo, .p-ranobe-show .studio-logo, .b-db_entry>.c-image img {
+  box-shadow: 10px 10px 0 #000000;
+  background: white;
+}
+
+.b-add_to_list.watching .trigger, .b-add_to_list.watching .option,
+.b-add_to_list.planned .trigger, .b-add_to_list.planned .option {
+  background: #00aaaa;
+  border-color: green;
+}
+
+.status-name {
+  color: black;
+}
+
+.b-add_to_list .trigger-arrow, .b-add_to_list.watching .trigger, .b-add_to_list.watching .option,
+.b-add_to_list .plus {
+  color: black;
+}
+
+.b-add_to_list .trigger, .b-add_to_list .option {
+  font-size: 18px;
+}
+
+.b-catalog_entry-tooltip .inner .line .value .tag,
+.b-catalog_entry-tooltip .inner .line .key {
+  color: #bbbbbb;
+}
+
+.b-add_to_list.completed .trigger, .b-add_to_list.completed .option {
+  background: lime;
+  border-color: green;
+}
+
+.b-animes-menu .total-rates, .bar.horizontal .line .x_label {
+  color: #bbbbbb;
+}
+
+.b-link_button.dark {
+  background: lightblue;
+}
+
+.p-animes-show .other-names.click-loader, .p-mangas-show .other-names.click-loader, .p-ranobe-show .other-names.click-loader {
+  border: 2px solid black;
+  background: navy;
+  color: white;
+  box-shadow: 5px 5px 0 #000000;
+}
+
+.p-animes-show .other-names.click-loader:hover, .p-mangas-show .other-names.click-loader:hover, .p-ranobe-show .other-names.click-loader:hover {
+    background: black;
+    border: 2px solid black;
+}
+
+.b-db_entry-note .image img {
+  box-shadow: 5px 5px 0 #000000;
+}
+
+.b-show_more {
+  color: white;
+}
+
+.b-animes-menu .menu-topics-block .entry .name, .b-link {
+  color: #fefe54;
+}
+
+.b-comments .comments-loader, .b-comments .comments-hider, .b-comments .comments-expander {
+  box-shadow: 5px 5px 0 #000000;
+  background: #bbbbbb;
+  border: 2px solid black;
+  color: black;
+}
+
+/* Right panel and other */
+.b-spoiler label {
+  color: #fefe54;
+}
+
+.b-js-link {
+  color: #fefe54;
+}
+
+.b-js-link:hover {
+  color: #fefe54;
+  background: #aa5500;
+}
+
+.b-table th {
+  color: #ffffff;
+}
+
+.menu .unread-count, .menu .contest {
+  background: #00aaaa;
+  color: #ffffff !important;
+  border: 2px solid black;
+}
+
+.buttons span {
+  color: #fefe54 !important;
+}
+
+.buttons span:hover {
+  color: #fefe54 !important;
+  background: #aa5500;
+}
+
+#cutted_covers_1 .image-cutter {
+  box-shadow: 6px 6px 0 #000000;
+}
+
+.l-top_menu .menu-mobile .search, .l-top_menu .menu-mobile .menu, .l-top_menu .menu-mobile #sign_in, .l-top_menu .menu-userbox .search, .l-top_menu .menu-userbox .menu, .l-top_menu .menu-userbox #sign_in {
+  color: black;
+}
+
+.b-comments-notifier {
+  background: #00aaaa;
+  font-family: IBM_VGA8;
+  border: 2px solid black;
+}
+
+.b-comments-notifier:hover {
+  background: #666666;
+}
+
+/* Video player */
+.b-status-line .section.created_at time:before,
+.b-status-line .section.additional .comments:before,
+.b-status-line .section.changed_at time:before {
+  color: #fefe54;
+}
+
+header.head h1, header.head h2 {
+  font-family: IBM_VGA8;
+  color: white;
+}
+
+header.head h1 a.back:before, header.head h2 a.back:before {
+  color: white;
+}
+
+.l-page .menu-toggler .toggler {
+  background: #00aaaa;
+  border: 2px solid black;
+  border-radius: 0px;
+}
+
+.l-page .menu-toggler .toggler:before {
+  font-family: IBM_VGA8;
+  color: white;
+}
+
+.b-menu_logo img {
+  box-shadow: 10px 10px 0 #000000;
+  background: white;
+}
+
+.b-club .logo {
+  box-shadow: 8px 8px 0 #000000;
+}
+
+.purple {
+  color: purple;
+}
+
+.b-video_player .cc-player_controls .c-control .icon {
+  color: yellow;
+}
+
+.b-video_player .cc-player_controls .episode-num input {
+  background: #bbbbbb;
+  color: black;
+}
+
+.b-video_player .cc-player_controls .episode-num {
+  color: #bbbbbb !important;
+}
+
+.b-video_player .cc-player_controls .c-control {
+  color: #fefe54;
+}
+
+.p-anime_videos-index .c-anime_video_episodes .title, .p-anime_videos-index .c-videos .title {
+  color: white;
+}
+
+.p-anime_videos-index .c-videos .video-variant-switcher {
+  color: lightblue;
+}
+
+.b-video_variant .video-author, .b-video_variant .episode-num, .b-video_variant .video-id {
+  color: white;
+}
+
+.b-video_variant .video-quality.dvd, .b-video_variant .video-quality.bd {
+  background: none;
+}
+
+.b-video_variant .video-quality.dvd:before {
+  content: "DVD";
+  color: gold;
+}
+
+.b-video_variant .video-quality.bd:before {
+  content: "BLU-RAY";
+  color: cyan;
+}
+
+.b-video_variant .video-quality.bd, .b-video_variant .video-quality.dvd {
+  margin-top: 0px;
+  padding-right: 0px;
+}
+
+.b-video_variant a>span {
+  padding-right: 5px;
+}
+
+.p-animes-show .cc.two-videos .c-screenshot, .p-animes-show .cc.two-videos .c-video, .p-mangas-show .cc.two-videos .c-screenshot, .p-mangas-show .cc.two-videos .c-video, .p-ranobe-show .cc.two-videos .c-screenshot, .p-ranobe-show .cc.two-videos .c-video  {
+  box-shadow: 5px 5px 0 #000000;
+}
+
+/* Other */
+.p-profiles .profile-head .c-history .entry .misc {
+  color: #bbbbbb !important;
+}
+
+.p-profiles .profile-head .c-history .entry img {
+  box-shadow: 5px 5px 0 #000000;
+}
+
+.p-profiles .profile-head .c-brief header h1.aliases:after {
+  color: white;
+}
+
+.b-stats_bar .bar .third {
+  background: white;
+}
+
+.b-stats_bar.lifetime .bar .first {
+  background: red;
+}
+
+.p-profiles-show .lifetime .cuts .cut {
+  background: black;
+  height: 15px;
+}
+
+.p-profiles-show .lifetime .bar {
+  border: 2px solid black;
+  height: 15px;
+  line-height: 15px;
+  box-shadow: 3px 3px 0 #000000;
+}
+
+.p-profiles-show .profile-content .graph {
+  background: grey;
+  box-shadow: 3px 3px 0 #000000;
+  border: 4px double black;
+}
+
+.p-profiles-show .lifetime .times .time.checked {
+  color: #bbbbbb;
+}
+
+.p-profiles-show .lifetime .times .time {
+  color: white;
+}
+
+.p-profiles-show .lifetime .times .time.checked:before {
+  color: lime;
+  font-family: IBM_VGA8;
+  font-size: 14px;
+}
+
+.p-profiles-show .lifetime .title .value {
+  color: white;
+}
+
+.b-stats_bar .bar {
+  height: 20px;
+  line-height: 20px;
+  border: 2px solid black;
+}
+
+.b-stats_bar .bar .first, .b-stats_bar .bar .second, .b-stats_bar .bar .third {
+  line-height: 20px;
+  font-size: 15px;
+}
+
+.b-feedback>.marker-positioner>.marker-text,
+.b-feedback>.marker-positioner,
+.b-feedback>.hover-activator
+{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: none;
+}
+
+.l-top_menu .submenu>.entry.active {
+  color: white !important;
+}
+
+.b-quote {
+  background: #bbbbbb;
+  color: black;
+}
+
+.b-quote .b-spoiler label {
+  color: blue;
+}
+
+.b-quote .b-link {
+  color: blue !important;
+}
+
+.b-quote .b-link:hover {
+  color: white !important;
+  background: blue !important;
+}
+
+.b-quote .b-spoiler .content .before, .b-quote .b-spoiler .content .after {
+  color: navy;
+}
+
+.p-anime_videos-index .c-video_stats .views_count {
+  color: white;
+}
+
+.p-user_rates-index .list-lines tr.edit-form form {
+  background: green;
+  color: black;
+}
+
+.b-form .cancel {
+  color: #fefe54;
+}
+
+.l-footer .copyright {
+  color: white;
+}
+
+/* Tournamets page */
+.p-contests .match-day .match-link.active,
+.p-contests .match-day .match-link:hover,
+.p-contests .match-day .match-link:active {
+  background: #00aaaa;
+}
+
+.b-contest_match .vs .label {
+  color: white;
+  font-family: IBM_VGA8;
+}
+
+.b-contest_match .vs .invitation, .b-contest_match .vs .vote-voted, .b-contest_match .vs .vote-abstained, .b-contest_match .vs .thanks, .b-contest_match .vs .hint, .b-contest_match .vs .action, .b-contest_match .vs .not-selected {
+  color: white;
+}
+
+.b-contest_match .vs .actions .action span {
+  color: lightblue;
+}
+
+span.name-en,
+span.name-ru {
+  color: #fefe54;
+}
+
+.p-contests .match-day .match-link .voted:before, .p-contests .match-day .match-link .winner:before, .p-contests .match-day .match-link .loser:before, .p-contests .match-day .match-link .created:before, .p-contests .match-day .match-link .started:before, .p-contests .match-day .match-link .finished:before {
+  font-family: IBM_VGA8;
+}
+
+.p-contests .match-day .matches-num,
+.p-contests .match-day>.date .to,
+.p-contests .match-day>.date .from {
+  color: white;
+}
+
+.p-contests .match-day .match-link .started:before {
+  color: white;
+}
+
+.b-contest_match .votes-percents {
+  box-shadow: 5px 5px 0 #000000;
+  margin-bottom: 5px;
+}
+
+.b-contest_match .votes-percents .left-part:hover,
+.b-contest_match .votes-percents .left-part {
+  background: blue;
+}
+
+.b-contest_match .votes-percents .left-part:hover .right-part,
+.b-contest_match .votes-percents .left-part .right-part {
+  background: pink;
+}
+
+.b-contest_match .votes-percents .right-part:before {
+  left: 0px;
+}
+
+.b-contest_match .votes-percents .left-part:hover .right-part:before,
+.b-contest_match .votes-percents .left-part .right-part:before{
+  border-right: none;
+}
+
+.b-contest_match .votes-percents .left-part span {
+  color: white;
+}
+
+.b-contest_match .votes-percents .left-part .right-part span {
+  color: black;
+}
