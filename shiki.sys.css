@@ -70,7 +70,7 @@ span {
   color: #bbbbbb;
 }
 
-h1, header.head h1 {
+h1, h2, h3, h4, header.head h1 {
   color: #ffffff !important;
   font-family: IBM_VGA8 !important;
 }
@@ -306,6 +306,14 @@ input, select, button, textarea {
   color: black;
 }
 
+a.b-link_button {
+  color: #000000 !important;
+}
+
+.b-link_button {
+  box-shadow: 10px 10px 0 #000000;
+}
+
 /* User list */
 .p-user_rates-index .list-lines .selectable:hover {
   color: black;
@@ -449,12 +457,8 @@ color: black;
   color: black;
 }
 
-a.b-link_button {
-  color: #000000 !important;
-}
-
-.b-link_button {
-  box-shadow: 10px 10px 0 #000000;
+.p-profiles .profile-head .c-info .c-additionals b {
+  color: white;
 }
 
 /* Main page */
@@ -577,6 +581,7 @@ a.b-link_button {
 
 .b-link_button.dark {
   background: lightblue;
+  color: black;
 }
 
 .p-animes-show .other-names.click-loader, .p-mangas-show .other-names.click-loader, .p-ranobe-show .other-names.click-loader {
