@@ -298,6 +298,10 @@ h1, h2, h3, h4, header.head h1 {
   background: #000000;
 }
 
+.l-top_menu-v2 .menu-dropdown .submenu-triangle:hover {
+  background: #bbbbbb;
+}
+
 .l-top_menu-v2 .menu-dropdown .submenu > a[class*="icon-"],
 .l-top_menu-v2 .menu-dropdown .submenu > a[class*="icon-"] span {
   background: #bbbbbb;
