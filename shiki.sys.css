@@ -42,6 +42,11 @@ body {
     }
 }
 
+/* Hide news from main page */
+.v2 .block2:last-of-type {
+  display: none;
+}
+
 /* Actions captions on mobile devices */
 @media screen and (max-width: 480px) and (orientation: portrait) {
     .c-actions .new_comment:after,
