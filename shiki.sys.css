@@ -69,6 +69,7 @@ body {
   background: #000084;
   color: #bbbbbb;
   font-family: IBM_VGA8;
+  image-rendering: pixelated; // pixelated images
 }
 
 span {
