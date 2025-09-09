@@ -175,10 +175,16 @@ h1, h2, h3, h4, header.head h1, .comments, .b-news_wall-topic .title, header.hea
 }
 
 .headline, .midheadline, .subheadline {
-  background: #00aaaa;
-  padding: 20px 20px;
-  margin: 20px 0 20px;
+  background: transparent;
+  padding: 5px 0 20px;
+  margin: 0 0 20px;
   font-family: IBM_VGA8 !important;
+  border-left: none;
+  font-size: 24px;
+}
+
+.subheadline {
+  color: white;
 }
 
 .logo {
