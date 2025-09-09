@@ -1169,7 +1169,8 @@ span.name-ru {
 .l-top_menu-v2 .icon-sign_out:before,
 .l-top_menu-v2 .menu-icon.contest:before,
 .l-top_menu-v2 .menu-icon.forum:before,
-.l-top_menu-v2 .menu-icon.mail:before {
+.l-top_menu-v2 .menu-icon.mail:before,
+.l-top_menu-v2 .icon-home:before {
   font-family: 'Pixelarticons';
   font-weight: 500;
 }
@@ -1247,4 +1248,8 @@ span.name-ru {
 
 .l-top_menu-v2 .icon-sign_out:before {
   content: '\eb3b';
+}
+
+.l-top_menu-v2 .icon-home:before {
+  content: '\eb05';
 }
