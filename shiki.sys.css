@@ -1193,7 +1193,8 @@ span.name-ru {
 .l-top_menu-v2 .menu-icon.contest:before,
 .l-top_menu-v2 .menu-icon.forum:before,
 .l-top_menu-v2 .menu-icon.mail:before,
-.l-top_menu-v2 .icon-home:before {
+.l-top_menu-v2 .icon-home:before,
+.l-top_menu-v2 .icon-profile:before {
   font-family: 'Pixelarticons';
   font-weight: 500;
 }
@@ -1219,8 +1220,9 @@ span.name-ru {
   content: '\ead8';
 }
 
-.l-top_menu-v2 .icon-users:before {
-  content: '\eb09';
+.l-top_menu-v2 .icon-users:before,
+.l-top_menu-v2 .icon-profile:before {
+  content: '\ebd0';
 }
 
 .l-top_menu-v2 .icon-contests:before,
