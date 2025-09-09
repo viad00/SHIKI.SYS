@@ -567,6 +567,23 @@ header.head .misc, header.head a.edit {
   color: #ffffff;
 }
 
+.tipsy-inner {
+  font-family: IBM_VGA8;
+  background: #bbbbbb;
+  color: #000084;
+  border-radius: 0;
+  box-shadow: 2px 2px 0 #000000;
+  -webkit-box-shadow: 2px 2px 0 #000000;
+}
+
+.tipsy-arrow {
+  display: none;
+}
+
+.tipsy {
+  opacity: 1 !important;
+}
+
 .avatar center a img {
   box-shadow: 10px 10px 0 #000000;
 }
