@@ -112,6 +112,12 @@ h1, h2, h3, h4, header.head h1, .comments, .b-news_wall-topic .title, header.hea
   box-shadow: 0 0 0 0, 2px 3px 0 1px black;
   background-color: #00aaaa !important;
   color: #000000 !important;
+  transition: none !important;
+}
+
+.p-dashboards-show .v2 .fc-user-sections .tag-link:hover {
+  color: #fefe54 !important;
+  background-color: #aa5500 !important;
 }
 
 .b-link_button, .b-link_button.dark {
@@ -154,6 +160,11 @@ h1, h2, h3, h4, header.head h1, .comments, .b-news_wall-topic .title, header.hea
 
 .b-user_rate-history .progress {
   background-color: #bbbbbb;
+}
+
+.tooltip-inner .close {
+  color: white;
+  background: transparent;
 }
 
 /* Links */
@@ -845,6 +856,13 @@ div.trigger > div.edit-trigger > div.text > span:nth-child(2) {
 
 .b-anime_status_tag.episode, .b-anime_status_tag.studio, .b-anime_status_tag.review {
   background: #00aaaa !important;
+  color: #000000 !important;;
+  border: none;
+}
+
+.b-anime_status_tag.episode:hover, .b-anime_status_tag.studio:hover, .b-anime_status_tag.review:hover {
+  color: #fefe54 !important;
+  background-color: #aa5500 !important;
 }
 
 .b-add_to_list.watching .trigger, .b-add_to_list.watching .option,
