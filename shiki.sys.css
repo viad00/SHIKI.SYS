@@ -116,6 +116,11 @@ h1, h2, h3, h4, header.head h1 {
   font-family: IBM_VGA8;
 }
 
+.l-top_menu-v2 .global-search .search-results.is-overflowed-above:before,
+.l-top_menu-v2 .global-search .search-results.is-overflowed-below:after {
+  opacity: 0 !important;
+}
+
 .l-top_menu-v2 a, .to-top-fix a {
   color: #000000 !important;
   font-size: 16px !important;
@@ -197,10 +202,36 @@ h1, h2, h3, h4, header.head h1 {
   font-size: 25px;
 }
 
-.l-top_menu-v2 .global-search .search-results .search-mode,
-.l-top_menu-v2 .global-search .search-results .search-mode.active {
+.l-top_menu-v2 .global-search .search-results .search-mode {
   border-top: 2px solid #000000;
   background: #bbbbbb;
+}
+
+.l-top_menu-v2 .global-search .search-results .b-db_entry-variant-list_item+.b-db_entry-variant-list_item,
+.l-top_menu-v2 .global-search .search-results .b-db_entry-variant-list_item+.search-mode,
+.l-top_menu-v2 .global-search .search-results .b-db_entry-variant-list_item.active+.b-db_entry-variant-list_item,
+.l-top_menu-v2 .global-search .search-results .b-db_entry-variant-list_item.active+.search-mode {
+  border-top: 2px solid #000000;
+  background: transparent;
+  transition: none;
+}
+
+.l-top_menu-v2 .global-search .search-results .b-db_entry-variant-list_item.active {
+  background: transparent;
+}
+
+.l-top_menu-v2 .global-search .search-results .b-db_entry-variant-list_item.active:before {
+  background: #fefe54;
+}
+
+.l-top_menu-v2 .global-search .search-results .b-db_entry-variant-list_item .image img {
+  border: 2px solid #000000;
+  box-shadow: 0 0 0 0, 2px 3px 0 1px black;
+}
+
+.b-db_entry-variant-list_item > .info .line .key,
+.b-entry-info .line .key {
+  color: #ffffff;
 }
 
 .l-top_menu-v2 .global-search .search-results {
@@ -724,6 +755,19 @@ color: black;
 .b-link_button.dark {
   background: lightblue;
   color: black;
+}
+
+.p-animes-show .other-names, .p-animes-show .more-info,
+.p-mangas-show .other-names, .p-mangas-show .more-info,
+.p-ranobe-show .other-names, .p-ranobe-show .more-info,
+.p-animes-show .other-names, .p-animes-show .more-info:hover,
+.p-mangas-show .other-names, .p-mangas-show .more-info:hover,
+.p-ranobe-show .other-names, .p-ranobe-show .more-info:hover {
+  background: transparent !important;
+  color: #ffffff !important;
+  border: none !important;
+  font-family: IBM_VGA8;
+  font-size: 16px;
 }
 
 .p-animes-show .other-names.click-loader, .p-mangas-show .other-names.click-loader, .p-ranobe-show .other-names.click-loader {
