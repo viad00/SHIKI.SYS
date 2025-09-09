@@ -584,6 +584,10 @@ header.head .misc, header.head a.edit {
   opacity: 1 !important;
 }
 
+.editor-container .b-options-floated {
+  display: none;
+}
+
 .avatar center a img {
   box-shadow: 10px 10px 0 #000000;
 }
