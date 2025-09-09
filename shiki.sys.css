@@ -240,6 +240,15 @@ h1, h2, h3, h4, header.head h1 {
   box-shadow: 0 0 0 0, 5px 6px 0 3px black;
 }
 
+.l-top_menu-v2 .global-search .search-results .inner::-webkit-scrollbar {
+  display: none;
+}
+
+.l-top_menu-v2 .global-search .search-results .inner {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 .l-top_menu-v2 .global-search .search-results .search-mode.active,
 .l-top_menu-v2 .global-search .search-results .search-mode:hover {
   background: #bbbbbb;
@@ -707,6 +716,20 @@ color: black;
 
 .b-entry-info .line .value {
   color: white;
+}
+
+.b-tag {
+  color: white !important;
+  font-family: IBM_VGA8;
+}
+
+.b-tag[href] {
+  border-bottom-color: #fefe54;
+}
+
+.b-tag:hover {
+  color: #fefe54 !important;
+  background: #aa5500 !important;
 }
 
 .b-rate .text-score, .b-rate .score-notice {
