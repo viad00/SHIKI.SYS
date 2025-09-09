@@ -88,14 +88,30 @@ span {
   color: #bbbbbb;
 }
 
-h1, h2, h3, h4, header.head h1 {
+h1, h2, h3, h4, header.head h1, .comments, .b-news_wall-topic .title, header.head .notice {
   color: #ffffff !important;
   font-family: IBM_VGA8 !important;
 }
 
 .l-footer .copyright,
-.l-footer .links {
+.l-footer .links,
+.b-anime_status_tag,
+.misc-links,
+.b-news_line-topic .title span {
+  font-family: IBM_VGA8 !important;
+}
+
+.b-to-top .slide:before {
+  background: transparent;
+}
+
+.p-dashboards-show .v2 .fc-user-sections .tag-link {
+  border: none !important;
+  border-radius: 0;
   font-family: IBM_VGA8;
+  box-shadow: 0 0 0 0, 2px 3px 0 1px black;
+  background-color: #00aaaa !important;
+  color: #000000 !important;
 }
 
 /* Links */
@@ -764,9 +780,23 @@ color: black;
   font-family: IBM_VGA8;
 }
 
-.p-animes-show .studio-logo, .p-mangas-show .studio-logo, .p-ranobe-show .studio-logo, .b-db_entry>.c-image img {
+.p-animes-show .studio-logo, .p-mangas-show .studio-logo, .p-ranobe-show .studio-logo, .b-db_entry>.c-image img, .b-db_entry-poster {
   box-shadow: 10px 10px 0 #000000;
   background: white;
+}
+
+.b-add_to_list.planned .edit:before, .b-add_to_list.watching .edit:before,
+.b-add_to_list.completed .edit:before, .b-add_to_list.rewatching .edit:before,
+.b-add_to_list.on_hold .edit:before, .b-add_to_list.dropped .edit:before {
+  content: '';
+}
+
+div.trigger > div.edit-trigger > div.text > span:nth-child(2) {
+  color: #000000;
+}
+
+.b-anime_status_tag.episode, .b-anime_status_tag.studio, .b-anime_status_tag.review {
+  background: #00aaaa !important;
 }
 
 .b-add_to_list.watching .trigger, .b-add_to_list.watching .option,
@@ -785,7 +815,7 @@ color: black;
 }
 
 .b-add_to_list .trigger, .b-add_to_list .option {
-  font-size: 18px;
+  font-weight: normal;
 }
 
 .b-catalog_entry-tooltip .inner .line .value .tag,
@@ -1221,14 +1251,17 @@ span.name-ru {
 .l-top_menu-v2 .menu-icon.forum:before,
 .l-top_menu-v2 .menu-icon.mail:before,
 .l-top_menu-v2 .icon-home:before,
-.l-top_menu-v2 .icon-profile:before {
-  font-family: 'Pixelarticons';
-  font-weight: 500;
+.l-top_menu-v2 .icon-profile:before,
+.b-to-top.active .arrow:before,
+.comments:before {
+  font-family: 'Pixelarticons' !important;
+  font-weight: 500 !important;
 }
 
 .l-top_menu-v2 .icon-forum:before,
-.l-top_menu-v2 .menu-icon.forum:before {
-  content: '\eb55';
+.l-top_menu-v2 .menu-icon.forum:before,
+.comments:before {
+  content: '\eb55' !important;
 }
 
 .l-top_menu-v2 .icon-clubs:before {
@@ -1304,4 +1337,9 @@ span.name-ru {
 
 .l-top_menu-v2 .icon-home:before {
   content: '\eb05';
+}
+
+.b-to-top.active .arrow:before {
+  content: '\ea21';
+  color: #fefe54;
 }
