@@ -18,7 +18,7 @@
 -----------------------------------------------------------------------------------
 */
 
-/* Set font */
+/* Set fonts */
 @font-face {
   font-family: IBM_VGA8;
   /*
@@ -31,6 +31,18 @@
        /* Originally used VGA8, but later changed to VGA9 */
 }
 
+@font-face {
+  font-family: MisakiMincho;
+  /* https://littlelimit.net/misaki.htm */
+  src: url(https://raw.githubusercontent.com/ch1kulya/SHIKI.SYS/master/misaki_mincho.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Pixelarticons;
+  /* https://pixelarticons.com/ */
+  src: url(https://raw.githubusercontent.com/ch1kulya/SHIKI.SYS/master/pixelart-icons-font.ttf) format("truetype");
+}
+
 /* Screen-specific */
 /* background color on wide-screens */
 body {
@@ -40,6 +52,11 @@ body {
     body {
         background: navy;
     }
+}
+
+/* Hide news from main page */
+.v2 .block2:last-of-type {
+  display: none;
 }
 
 /* Actions captions on mobile devices */
@@ -64,20 +81,90 @@ body {
   background: #000084;
   color: #bbbbbb;
   font-family: IBM_VGA8;
+  image-rendering: pixelated; // pixelated images
 }
 
 span {
   color: #bbbbbb;
 }
 
-h1, h2, h3, h4, header.head h1 {
+h1, h2, h3, h4, header.head h1, .comments, .b-news_wall-topic .title, header.head .notice {
   color: #ffffff !important;
   font-family: IBM_VGA8 !important;
 }
 
 .l-footer .copyright,
-.l-footer .links {
+.l-footer .links,
+.b-anime_status_tag,
+.misc-links,
+.b-news_line-topic .title span {
+  font-family: IBM_VGA8 !important;
+}
+
+.b-to-top .slide:before {
+  background: transparent;
+}
+
+.p-dashboards-show .v2 .fc-user-sections .tag-link {
+  border: none !important;
+  border-radius: 0;
   font-family: IBM_VGA8;
+  box-shadow: 0 0 0 0, 2px 3px 0 1px black;
+  background-color: #00aaaa !important;
+  color: #000000 !important;
+  transition: none !important;
+}
+
+.p-dashboards-show .v2 .fc-user-sections .tag-link:hover {
+  color: #fefe54 !important;
+  background-color: #aa5500 !important;
+}
+
+.b-link_button, .b-link_button.dark {
+  color: #000000;
+  background-color: #bbbbbb;
+  box-shadow: 0 0 0 0, 2px 3px 0 1px black;
+  font-family: IBM_VGA8;
+  border: none !important;
+  font-weight: normal;
+}
+
+.b-link_button span {
+  color: #000000;
+  font-weight: normal;
+}
+
+.b-link_button.create-topic:before {
+  font-family: IBM_VGA8;
+}
+
+.b-link_button:hover span, .b-link_button.dark:hover span {
+  color: #fefe54 !important;
+}
+
+.b-link_button:hover, .b-link_button.dark:hover {
+  color: #fefe54 !important;
+  background-color: #aa5500;
+}
+
+.p-dashboards-show .v2 .my-list {
+  background: transparent;
+  border: 2px dotted #fefe54;
+}
+
+.p-dashboards-show .v2 .my-list .label span,
+.b-user_rate-history .status-counter,
+.b-user_rate-history .score-time time {
+  color: #fefe54;
+}
+
+.b-user_rate-history .progress {
+  background-color: #bbbbbb;
+}
+
+.tooltip-inner .close {
+  color: white;
+  background: transparent;
 }
 
 /* Links */
@@ -93,18 +180,24 @@ h1, h2, h3, h4, header.head h1 {
 }
 
 /* Top menu */
-.l-top_menu, .to-top-fix {
+.l-top_menu-v2, .to-top-fix {
   background: #bbbbbb;
   font-family: IBM_VGA8;
 }
 
-.l-top_menu a, .to-top-fix a {
-  color: #000000 !important;
-  font-size: 16px !important;
+.b-hot_topics-v2 {
+  background-color: transparent;
+  border-bottom: none;
 }
 
-.l-top_menu a:hover, .to-top-fix a:hover {
-  color: #ffffff !important;
+.l-top_menu-v2 .global-search .search-results.is-overflowed-above:before,
+.l-top_menu-v2 .global-search .search-results.is-overflowed-below:after {
+  opacity: 0 !important;
+}
+
+.l-top_menu-v2 a, .to-top-fix a {
+  color: #000000 !important;
+  font-size: 16px !important;
 }
 
 .menu-items > .entry > .contest {
@@ -139,24 +232,27 @@ h1, h2, h3, h4, header.head h1 {
   color: #ffffff;
 }
 
-.entry.info>a:before {
-  content: "i" !important;
-  font-family: IBM_VGA8 !important;
-}
-
-.entry.calendar>a:before {
-  content: "CA" !important;
-  font-family: IBM_VGA8 !important;
-}
-
 .headline, .midheadline, .subheadline {
-  background: #00aaaa;
-  padding: 20px 20px;
-  margin: 20px 0 20px;
+  background: transparent;
+  padding: 5px 0 20px;
+  margin: 0 0 20px;
+  font-family: IBM_VGA8 !important;
+  border-left: none;
+  font-size: 24px;
+}
+
+#dashboards_show > section > div > div > div:nth-child(5) > div > div:nth-child(2) > div.headline,
+.subheadline,
+.b-hot_topics-v2 .subject {
+  color: white;
 }
 
 .logo {
   background: none !important;
+}
+
+.glyph {
+  display: none !important;
 }
 
 .logo:before {
@@ -164,12 +260,127 @@ h1, h2, h3, h4, header.head h1 {
   font-size: 22px;
 }
 
-.logo:hover {
+.logo:hover, .logo-container:hover {
   color: #000084;
 }
 
-.b-main_search .
-{
+.l-top_menu-v2 .global-search input {
+  background-color: #cfcfcf;
+  color: #000000;
+  border: 2px solid #000000;
+}
+
+.l-top_menu-v2.is-search-focus .global-search .search-marker,
+.l-top_menu-v2 .global-search .search-marker,
+.l-top_menu-v2 .global-search .clear
+.l-top_menu-v2 .global-search .hotkey-marker,
+.l-top_menu-v2 .global-search .hotkey-marker::before,
+.l-top_menu-v2 .global-search input::placeholder {
+  color: #000000 !important;
+  opacity: 0.8;
+}
+
+.l-top_menu-v2 .global-search .hotkey-marker {
+  border: none;
+  font-size: 25px;
+}
+
+.l-top_menu-v2 .global-search .search-results .search-mode,
+.l-top_menu-v2 .global-search .search-results .search-mode.active {
+  border-top: 2px solid #000000;
+  background: #bbbbbb;
+}
+
+.l-top_menu-v2 .global-search .search-results .b-db_entry-variant-list_item+.b-db_entry-variant-list_item,
+.l-top_menu-v2 .global-search .search-results .b-db_entry-variant-list_item+.search-mode,
+.l-top_menu-v2 .global-search .search-results .b-db_entry-variant-list_item.active+.b-db_entry-variant-list_item,
+.l-top_menu-v2 .global-search .search-results .b-db_entry-variant-list_item.active+.search-mode {
+  border-top: 2px solid #000000;
+  background: transparent;
+  transition: none;
+}
+
+.l-top_menu-v2 .global-search .search-results .b-db_entry-variant-list_item.active {
+  background: transparent;
+}
+
+.l-top_menu-v2 .global-search .search-results .b-db_entry-variant-list_item.active:before {
+  background: #fefe54;
+}
+
+.l-top_menu-v2 .global-search .search-results .b-db_entry-variant-list_item .image img {
+  border: 2px solid #000000;
+  box-shadow: 0 0 0 0, 2px 3px 0 1px black;
+}
+
+.b-db_entry-variant-list_item > .info .line .key,
+.b-entry-info .line .key {
+  color: #ffffff;
+}
+
+.l-top_menu-v2 .global-search .search-results {
+  background: #000084;
+  border: 2px solid #000000;
+  box-shadow: 0 0 0 0, 5px 6px 0 3px black;
+}
+
+.l-top_menu-v2 .global-search .search-results .inner::-webkit-scrollbar {
+  display: none;
+}
+
+.l-top_menu-v2 .global-search .search-results .inner {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.l-top_menu-v2 .global-search .search-results .search-mode.active,
+.l-top_menu-v2 .global-search .search-results .search-mode:hover {
+  background: #bbbbbb;
+}
+
+.l-top_menu-v2 .global-search .search-results .search-mode.active:before,
+.l-top_menu-v2 .global-search .search-results .search-mode:focus:before{
+  background: #000084;
+}
+
+.l-top_menu-v2 .global-search .search-results .nothing_found {
+  color: #000000;
+  background: #bbbbbb;
+}
+
+.l-top_menu-v2 .global-search .search-results .b-ajax::before {
+  background: #bbbbbb;
+}
+
+.l-top_menu-v2 .global-search .search-results .b-ajax::after {
+  content: "[-]";
+  font-family: IBM_VGA8;
+  color: #000084;
+  background: transparent;
+  padding: 5px;
+  position: absolute;
+  font-size: 40px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: dos-spinner 0.8s infinite;
+}
+
+@keyframes dos-spinner {
+  0% { content: "[-]"; }
+  25% { content: "[\\]"; }
+  50% { content: "[|]"; }
+  75% { content: "[/]"; }
+  100% { content: "[-]"; }
+}
+
+.global-search .search-results .search-mode.active+.b-db_entry-variant-list_item, .l-top_menu-v2 .global-search
+.search-results .search-mode.active+.search-mode, .l-top_menu-v2 .global-search .search-results .search-mode:focus+.b-db_entry-variant-list_item,
+.l-top_menu-v2 .global-search .search-results .search-mode:focus+.search-mode {
+  border-top-color: #000000;
+}
+
+.b-main_search .input {
   background-color: #cfcfcf;
   border: 2px solid #000000;
 }
@@ -216,19 +427,74 @@ h1, h2, h3, h4, header.head h1 {
   background: #000000;
 }
 
-
-.l-top_menu .submenu {
+.l-top_menu-v2 .menu-dropdown .submenu-triangle:hover {
   background: #bbbbbb;
 }
 
-.l-top_menu .submenu > .entry {
+.l-top_menu-v2 .menu-dropdown .submenu > a[class*="icon-"],
+.l-top_menu-v2 .menu-dropdown .submenu > a[class*="icon-"] span {
   background: #bbbbbb;
+  color: #000000 !important;
   font-family: IBM_VGA8;
 }
 
-.l-top_menu .submenu > .entry:hover {
+.l-top_menu-v2 .menu-dropdown .submenu > a[class*="icon-"].active,
+.l-top_menu-v2 .menu-dropdown .submenu > a[class*="icon-"].active span {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+.l-top_menu-v2 .menu-dropdown .submenu .legend {
+  color: #555555;
+  font-family: IBM_VGA8;
+  background: #bbbbbb;
+}
+
+.l-top_menu-v2 .menu-dropdown .submenu-triangle img {
+  border: 2px solid #000000;
+}
+
+.l-top_menu-v2 .menu-dropdown .submenu-triangle,
+.l-top_menu-v2 .menu-dropdown .submenu-triangle span {
+  font-family: IBM_VGA8;
+  color: #000000 !important;
+  background: #bbbbbb;
+  transition: none !important;
+}
+
+.l-top_menu-v2 .menu-dropdown.active .submenu-triangle,
+.l-top_menu-v2 .menu-dropdown.active .submenu-triangle span {
   background: #000000;
+  color: #ffffff !important;
+}
+
+.l-top_menu-v2 .menu-dropdown .submenu {
+  background: #bbbbbb;
+  border: 2px solid #000000;
   font-family: IBM_VGA8;
+}
+
+.l-top_menu-v2 .menu-icon {
+  color: #000000;
+}
+
+.l-top_menu-v2 .menu-icon:hover {
+  color: #000084 !important;
+  background: none;
+}
+
+.l-top_menu-v2 .submenu .icon-socials {
+  display: none !important;
+}
+
+.l-top_menu-v2 .menu-icon[data-count]:after {
+  color: #000084 !important;
+  border-radius: 0 !important;
+  font-family: IBM_VGA8;
+  background: transparent !important;
+  font-size: 12px !important;
+  border: none;
+  top: 5px !important;
 }
 
 .b-main_search ul.popup li {
@@ -243,7 +509,7 @@ h1, h2, h3, h4, header.head h1 {
   color: #ffffff;
 }
 
-.l-top_menu .menu-userbox .arrow-container .arrow-down {
+.l-top_menu-v2 .menu-userbox .arrow-container .arrow-down {
   border-color: #000000 transparent transparent transparent;
 }
 
@@ -252,7 +518,7 @@ h1, h2, h3, h4, header.head h1 {
   box-shadow: 3px 3px 0 #000000;
 }
 
-.l-top_menu .menu-items>.entry.selected, .l-top_menu .menu-items>.entry:hover {
+.l-top_menu-v2 .menu-items>.entry.selected, .l-top_menu-v2 .menu-items>.entry:hover {
   background: #cccccc;
 }
 
@@ -308,10 +574,6 @@ input, select, button, textarea {
 
 a.b-link_button {
   color: #000000 !important;
-}
-
-.b-link_button {
-  box-shadow: 10px 10px 0 #000000;
 }
 
 /* User list */
@@ -379,6 +641,31 @@ header.head .misc, header.head a.edit {
 }
 
 /* User page */
+.p-profiles-show .achievements .header .title {
+  color: #ffffff;
+}
+
+.tipsy-inner {
+  font-family: IBM_VGA8;
+  background: #bbbbbb;
+  color: #000084;
+  border-radius: 0;
+  box-shadow: 2px 2px 0 #000000;
+  -webkit-box-shadow: 2px 2px 0 #000000;
+}
+
+.tipsy-arrow {
+  display: none;
+}
+
+.tipsy {
+  opacity: 1 !important;
+}
+
+.editor-container .b-options-floated {
+  display: none;
+}
+
 .avatar center a img {
   box-shadow: 10px 10px 0 #000000;
 }
@@ -530,10 +817,65 @@ color: black;
   background: none;
 }
 
+.b-offtopic_marker,
+.b-offtopic_marker:before {
+  font-family: IBM_VGA8  !important;
+}
+
 /* Anime/Manga info */
 
-.b-entry-info .line .value {
+.p-animes-show .c-info-right .watch-online .kind,
+.p-mangas-show .c-info-right .watch-online .kind,
+.p-ranobe-show .c-info-right .watch-online .kind,
+.b-status-line .section.main .comments:before,
+.b-critique_votes:before,
+.b-review-topic.is-review_review_author_details>.inner .review-details .b-status-line,
+.b-entry-info .line .value,
+.b-review-topic.is-review_review_author_details>.inner .review-info .neutral,
+.b-review-topic.is-review_review_author_details>.inner .review-info .positive,
+.b-review-topic.is-review_review_author_details>.inner .review-info .negative,
+.b-review-topic.is-review_review_author_details>.inner .review-info .user-rate-label {
   color: white;
+}
+
+.b-review-topic.is-review_review_author_details>.inner .review-info .neutral,
+.b-review-topic.is-review_review_author_details>.inner .review-info .positive,
+.b-review-topic.is-review_review_author_details>.inner .review-info .negative,
+.b-review-topic.is-review_review_author_details>.inner .review-info .user-rate-label,
+.status-name {
+  font-family: IBM_VGA8;
+}
+
+.b-review-topic.is-review_review_author_details>.inner .review-info .neutral,
+.b-review-topic.is-review_review_author_details>.inner .review-info .positive,
+.b-review-topic.is-review_review_author_details>.inner .review-info .negative {
+  background: transparent !important;
+}
+
+.b-reviews_navigation .navigation-container,
+.b-reviews_navigation .navigation-node .label, 
+.b-reviews_navigation .navigation-node .count,
+.b-reviews_navigation .navigation-node-all,
+.b-reviews_navigation .navigation-node-positive,
+.b-reviews_navigation .navigation-node-negative,
+.b-reviews_navigation .navigation-node-neutral {
+  font-family: IBM_VGA8;
+  background: #000084 !important;
+  border: none;
+}
+
+.b-tag {
+  color: white !important;
+  font-family: IBM_VGA8;
+}
+
+.b-tag[href] {
+  border-bottom-color: #fefe54;
+}
+
+.b-tag:hover {
+  color: #fefe54 !important;
+  background: #aa5500 !important;
 }
 
 .b-rate .text-score, .b-rate .score-notice {
@@ -541,9 +883,33 @@ color: black;
   font-family: IBM_VGA8;
 }
 
-.p-animes-show .studio-logo, .p-mangas-show .studio-logo, .p-ranobe-show .studio-logo, .b-db_entry>.c-image img {
-  box-shadow: 10px 10px 0 #000000;
+.p-animes-show .studio-logo, .p-mangas-show .studio-logo,
+.p-ranobe-show .studio-logo, .b-db_entry>.c-image img,
+.b-db_entry-poster, .p-dashboards-show .v2 .db-update .poster img,
+.b-news_wall-topic .poster {
+  box-shadow: 6px 6px 0 #000000;
   background: white;
+}
+
+.b-add_to_list.planned .edit:before, .b-add_to_list.watching .edit:before,
+.b-add_to_list.completed .edit:before, .b-add_to_list.rewatching .edit:before,
+.b-add_to_list.on_hold .edit:before, .b-add_to_list.dropped .edit:before {
+  color: #000000;
+}
+
+div.trigger > div.edit-trigger > div.text > span:nth-child(2) {
+  color: #000000;
+}
+
+.b-anime_status_tag.episode, .b-anime_status_tag.studio, .b-anime_status_tag.review {
+  background: #00aaaa !important;
+  color: #000000 !important;;
+  border: none;
+}
+
+.b-anime_status_tag.episode:hover, .b-anime_status_tag.studio:hover, .b-anime_status_tag.review:hover {
+  color: #fefe54 !important;
+  background-color: #aa5500 !important;
 }
 
 .b-add_to_list.watching .trigger, .b-add_to_list.watching .option,
@@ -562,7 +928,7 @@ color: black;
 }
 
 .b-add_to_list .trigger, .b-add_to_list .option {
-  font-size: 18px;
+  font-weight: normal;
 }
 
 .b-catalog_entry-tooltip .inner .line .value .tag,
@@ -580,8 +946,21 @@ color: black;
 }
 
 .b-link_button.dark {
-  background: lightblue;
   color: black;
+}
+
+.p-animes-show .other-names, .p-animes-show .more-info,
+.p-mangas-show .other-names, .p-mangas-show .more-info,
+.p-ranobe-show .other-names, .p-ranobe-show .more-info,
+.p-animes-show .other-names, .p-animes-show .more-info:hover,
+.p-mangas-show .other-names, .p-mangas-show .more-info:hover,
+.p-ranobe-show .other-names, .p-ranobe-show .more-info:hover, 
+.collapsed.tiny {
+  background: transparent !important;
+  color: #ffffff !important;
+  border: none !important;
+  font-family: IBM_VGA8;
+  font-size: 16px;
 }
 
 .p-animes-show .other-names.click-loader, .p-mangas-show .other-names.click-loader, .p-ranobe-show .other-names.click-loader {
@@ -639,11 +1018,11 @@ color: black;
   border: 2px solid black;
 }
 
-.buttons span {
+.buttons span, .editor-file {
   color: #fefe54 !important;
 }
 
-.buttons span:hover {
+.buttons span:hover, .editor-file:hover {
   color: #fefe54 !important;
   background: #aa5500;
 }
@@ -652,7 +1031,7 @@ color: black;
   box-shadow: 6px 6px 0 #000000;
 }
 
-.l-top_menu .menu-mobile .search, .l-top_menu .menu-mobile .menu, .l-top_menu .menu-mobile #sign_in, .l-top_menu .menu-userbox .search, .l-top_menu .menu-userbox .menu, .l-top_menu .menu-userbox #sign_in {
+.l-top_menu-v2 .menu-mobile .search, .l-top_menu-v2 .menu-mobile .menu, .l-top_menu-v2 .menu-mobile #sign_in, .l-top_menu-v2 .menu-userbox .search, .l-top_menu-v2 .menu-userbox .menu, .l-top_menu-v2 .menu-userbox #sign_in {
   color: black;
 }
 
@@ -767,6 +1146,18 @@ header.head h1 a.back:before, header.head h2 a.back:before {
   color: #bbbbbb !important;
 }
 
+.b-options-floated.count {
+  color: #000000;
+  border: none;
+  box-shadow: 5px 5px 0 #000000;
+  padding: 4px;
+}
+
+.b-quote-v2 {
+  background: transparent;
+  border-left-color: #fefe54;
+}
+
 .p-profiles .profile-head .c-history .entry img {
   box-shadow: 5px 5px 0 #000000;
 }
@@ -841,7 +1232,7 @@ header.head h1 a.back:before, header.head h2 a.back:before {
   display: none;
 }
 
-.l-top_menu .submenu>.entry.active {
+.l-top_menu-v2 .submenu>.entry.active {
   color: white !important;
 }
 
@@ -882,6 +1273,17 @@ header.head h1 a.back:before, header.head h2 a.back:before {
 
 .l-footer .copyright {
   color: white;
+}
+
+#user_rates_index > section > div > div > div.menu-slide-outer.x199 > div > div > div.subheadline,
+#user_rates_index > section > div > div > div.menu-slide-outer.x199 > div > div > div.subheadline-buttons > div {
+  margin-top: 30px;
+}
+
+#user_rates_index > section > div > div > div.menu-slide-outer.x199 > div > div > div.subheadline-buttons > div {
+  background: #bbbbbb;
+  border: 2px solid #000000;
+  box-shadow: 0 0 0 3px, 5px 6px 0 3px black;
 }
 
 /* Tournamets page */
@@ -953,4 +1355,143 @@ span.name-ru {
 
 .b-contest_match .votes-percents .left-part .right-part span {
   color: black;
+}
+
+/* Custom icons */
+
+.l-top_menu-v2 .icon-anime:before,
+.l-top_menu-v2 .icon-manga:before,
+.l-top_menu-v2 .icon-ranobe:before {
+  font-family: 'MisakiMincho', serif;
+}
+
+.l-top_menu-v2 .icon-forum:before,
+.l-top_menu-v2 .icon-clubs:before,
+.l-top_menu-v2 .icon-collections:before,
+.l-top_menu-v2 .icon-critiques:before,
+.l-top_menu-v2 .icon-articles:before,
+.l-top_menu-v2 .icon-users:before,
+.l-top_menu-v2 .icon-contests:before,
+.l-top_menu-v2 .icon-calendar:before,
+.l-top_menu-v2 .icon-info:before,
+.l-top_menu-v2 .icon-moderation:before,
+.l-top_menu-v2 .icon-anime_list:before,
+.l-top_menu-v2 .icon-manga_list:before,
+.l-top_menu-v2 .icon-mail:before,
+.l-top_menu-v2 .icon-achievements:before,
+.l-top_menu-v2 .icon-settings:before,
+.l-top_menu-v2 .icon-site_rules:before,
+.l-top_menu-v2 .icon-faq:before,
+.l-top_menu-v2 .icon-sign_out:before,
+.l-top_menu-v2 .menu-icon.contest:before,
+.l-top_menu-v2 .menu-icon.forum:before,
+.l-top_menu-v2 .menu-icon.mail:before,
+.l-top_menu-v2 .icon-home:before,
+.l-top_menu-v2 .icon-profile:before,
+.b-to-top.active .arrow:before,
+.comments:before,
+.b-link_button.arrow-right:after,
+.profile-actions .mail:before,
+.profile-actions .settings:before,
+.profile-actions .ban:before {
+  font-family: 'Pixelarticons' !important;
+  font-weight: 500 !important;
+}
+
+.l-top_menu-v2 .icon-forum:before,
+.l-top_menu-v2 .menu-icon.forum:before,
+.comments:before {
+  content: '\eb55' !important;
+}
+
+.comments:before {
+  vertical-align: -3px;
+}
+
+.l-top_menu-v2 .icon-clubs:before {
+  content: '\ebd1';
+}
+
+.l-top_menu-v2 .icon-collections:before {
+  content: '\ebb6';
+}
+
+.l-top_menu-v2 .icon-critiques:before {
+  content: '\ead2';
+}
+
+.l-top_menu-v2 .icon-articles:before {
+  content: '\ead8';
+}
+
+.l-top_menu-v2 .icon-users:before,
+.l-top_menu-v2 .icon-profile:before {
+  content: '\ebd0';
+}
+
+.l-top_menu-v2 .icon-contests:before,
+.l-top_menu-v2 .menu-icon.contest:before {
+  content: '\eb23';
+}
+
+.l-top_menu-v2 .icon-calendar:before {
+  content: '\ea65';
+}
+
+.l-top_menu-v2 .icon-info:before {
+  content: '\eb1b';
+}
+
+.l-top_menu-v2 .icon-moderation:before,
+.profile-actions .ban:before {
+  content: '\ead7';
+}
+
+.l-top_menu-v2 .icon-anime_list:before {
+  content: '\eb65';
+}
+
+.l-top_menu-v2 .icon-manga_list:before {
+  content: '\ea36';
+}
+
+.l-top_menu-v2 .icon-mail:before,
+.l-top_menu-v2 .menu-icon.mail:before,
+.profile-actions .mail:before {
+  content: '\eb44';
+}
+
+.l-top_menu-v2 .icon-achievements:before {
+  content: '\ebc7';
+}
+
+.l-top_menu-v2 .icon-settings:before,
+.profile-actions .settings:before {
+  content: '\eba4';
+}
+
+.l-top_menu-v2 .icon-site_rules:before {
+  content: '\eb91';
+}
+
+.l-top_menu-v2 .icon-faq:before {
+  content: '\ea48';
+}
+
+.l-top_menu-v2 .icon-sign_out:before {
+  content: '\eb3b';
+}
+
+.l-top_menu-v2 .icon-home:before {
+  content: '\eb05';
+}
+
+.b-to-top.active .arrow:before {
+  content: '\ea21';
+  color: #fefe54;
+}
+
+.b-link_button.arrow-right:after {
+  content: '\ea1f';
+  vertical-align: -3px;
 }
