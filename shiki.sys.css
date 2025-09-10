@@ -1146,6 +1146,13 @@ header.head h1 a.back:before, header.head h2 a.back:before {
   color: #bbbbbb !important;
 }
 
+.b-options-floated.count {
+  color: #000000;
+  border: none;
+  box-shadow: 5px 5px 0 #000000;
+  padding: 4px;
+}
+
 .b-quote-v2 {
   background: transparent;
   border-left-color: #fefe54;
