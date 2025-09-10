@@ -811,10 +811,51 @@ color: black;
   background: none;
 }
 
+.b-offtopic_marker,
+.b-offtopic_marker:before {
+  font-family: IBM_VGA8  !important;
+}
+
 /* Anime/Manga info */
 
-.b-entry-info .line .value {
+.p-animes-show .c-info-right .watch-online .kind,
+.p-mangas-show .c-info-right .watch-online .kind,
+.p-ranobe-show .c-info-right .watch-online .kind,
+.b-status-line .section.main .comments:before,
+.b-critique_votes:before,
+.b-review-topic.is-review_review_author_details>.inner .review-details .b-status-line,
+.b-entry-info .line .value,
+.b-review-topic.is-review_review_author_details>.inner .review-info .neutral,
+.b-review-topic.is-review_review_author_details>.inner .review-info .positive,
+.b-review-topic.is-review_review_author_details>.inner .review-info .negative,
+.b-review-topic.is-review_review_author_details>.inner .review-info .user-rate-label {
   color: white;
+}
+
+.b-review-topic.is-review_review_author_details>.inner .review-info .neutral,
+.b-review-topic.is-review_review_author_details>.inner .review-info .positive,
+.b-review-topic.is-review_review_author_details>.inner .review-info .negative,
+.b-review-topic.is-review_review_author_details>.inner .review-info .user-rate-label,
+.status-name {
+  font-family: IBM_VGA8;
+}
+
+.b-review-topic.is-review_review_author_details>.inner .review-info .neutral,
+.b-review-topic.is-review_review_author_details>.inner .review-info .positive,
+.b-review-topic.is-review_review_author_details>.inner .review-info .negative {
+  background: transparent !important;
+}
+
+.b-reviews_navigation .navigation-container,
+.b-reviews_navigation .navigation-node .label, 
+.b-reviews_navigation .navigation-node .count,
+.b-reviews_navigation .navigation-node-all,
+.b-reviews_navigation .navigation-node-positive,
+.b-reviews_navigation .navigation-node-negative,
+.b-reviews_navigation .navigation-node-neutral {
+  font-family: IBM_VGA8;
+  background: #000084 !important;
+  border: none;
 }
 
 .b-tag {
@@ -847,7 +888,7 @@ color: black;
 .b-add_to_list.planned .edit:before, .b-add_to_list.watching .edit:before,
 .b-add_to_list.completed .edit:before, .b-add_to_list.rewatching .edit:before,
 .b-add_to_list.on_hold .edit:before, .b-add_to_list.dropped .edit:before {
-  content: '';
+  color: #000000;
 }
 
 div.trigger > div.edit-trigger > div.text > span:nth-child(2) {
@@ -907,7 +948,8 @@ div.trigger > div.edit-trigger > div.text > span:nth-child(2) {
 .p-ranobe-show .other-names, .p-ranobe-show .more-info,
 .p-animes-show .other-names, .p-animes-show .more-info:hover,
 .p-mangas-show .other-names, .p-mangas-show .more-info:hover,
-.p-ranobe-show .other-names, .p-ranobe-show .more-info:hover {
+.p-ranobe-show .other-names, .p-ranobe-show .more-info:hover, 
+.collapsed.tiny {
   background: transparent !important;
   color: #ffffff !important;
   border: none !important;
@@ -970,11 +1012,11 @@ div.trigger > div.edit-trigger > div.text > span:nth-child(2) {
   border: 2px solid black;
 }
 
-.buttons span {
+.buttons span, .editor-file {
   color: #fefe54 !important;
 }
 
-.buttons span:hover {
+.buttons span:hover, .editor-file:hover {
   color: #fefe54 !important;
   background: #aa5500;
 }
@@ -1215,6 +1257,17 @@ header.head h1 a.back:before, header.head h2 a.back:before {
   color: white;
 }
 
+#user_rates_index > section > div > div > div.menu-slide-outer.x199 > div > div > div.subheadline,
+#user_rates_index > section > div > div > div.menu-slide-outer.x199 > div > div > div.subheadline-buttons > div {
+  margin-top: 30px;
+}
+
+#user_rates_index > section > div > div > div.menu-slide-outer.x199 > div > div > div.subheadline-buttons > div {
+  background: #bbbbbb;
+  border: 2px solid #000000;
+  box-shadow: 0 0 0 3px, 5px 6px 0 3px black;
+}
+
 /* Tournamets page */
 .p-contests .match-day .match-link.active,
 .p-contests .match-day .match-link:hover,
@@ -1319,7 +1372,10 @@ span.name-ru {
 .l-top_menu-v2 .icon-profile:before,
 .b-to-top.active .arrow:before,
 .comments:before,
-.b-link_button.arrow-right:after {
+.b-link_button.arrow-right:after,
+.profile-actions .mail:before,
+.profile-actions .settings:before,
+.profile-actions .ban:before {
   font-family: 'Pixelarticons' !important;
   font-weight: 500 !important;
 }
@@ -1368,7 +1424,8 @@ span.name-ru {
   content: '\eb1b';
 }
 
-.l-top_menu-v2 .icon-moderation:before {
+.l-top_menu-v2 .icon-moderation:before,
+.profile-actions .ban:before {
   content: '\ead7';
 }
 
@@ -1381,7 +1438,8 @@ span.name-ru {
 }
 
 .l-top_menu-v2 .icon-mail:before,
-.l-top_menu-v2 .menu-icon.mail:before {
+.l-top_menu-v2 .menu-icon.mail:before,
+.profile-actions .mail:before {
   content: '\eb44';
 }
 
@@ -1389,7 +1447,8 @@ span.name-ru {
   content: '\ebc7';
 }
 
-.l-top_menu-v2 .icon-settings:before {
+.l-top_menu-v2 .icon-settings:before,
+.profile-actions .settings:before {
   content: '\eba4';
 }
 
