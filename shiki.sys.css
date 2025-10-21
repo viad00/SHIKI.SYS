@@ -78,12 +78,29 @@ body {
   }
 }
 
+@media screen and (max-width: 1023px) {
+    .p-dashboards-show .v2 .mobile-slider-prev:after,
+    .p-dashboards-show .v2 .mobile-slider-next:after {
+        color: black;
+        background: #bbbbbb;
+        padding: 3px 3px 0 3px;
+        border: 1px solid black;
+        box-shadow: 0 0 0 0, 2px 3px 0 1px black;
+    }
+    .p-dashboards-show .v2 .mobile-slider-prev:before,
+    .p-dashboards-show .v2 .mobile-slider-next:before,
+    .p-dashboards-show .v2 .mobile-slider-next.bright:before,
+    .p-dashboards-show .v2 .mobile-slider-prev.bright:before {
+        background: none;
+    }
+}
+
 /* Main body */
 .l-page {
   background: #000084;
   color: #bbbbbb;
   font-family: IBM_VGA8;
-  image-rendering: pixelated; // pixelated images
+  image-rendering: pixelated; /* pixelated images */
 }
 
 span {
@@ -429,7 +446,12 @@ h1, h2, h3, h4, header.head h1, .comments, .b-news_wall-topic .title, header.hea
   background: #000000;
 }
 
-.l-top_menu-v2 .menu-dropdown .submenu-triangle:hover {
+.l-top_menu-v2 .menu-dropdown .submenu-triangle:hover,
+.l-top_menu-v2 .menu-icon.active, .l-top_menu-v2 .menu-icon:focus,
+.l-top_menu-v2 .menu-dropdown.active>span,
+.l-top_menu-v2 .menu-dropdown>span:focus,
+.l-top_menu-v2 .menu-dropdown>span,
+.l-top_menu-v2.is-search-mobile .global-search {
   background: #bbbbbb;
 }
 
@@ -489,14 +511,20 @@ h1, h2, h3, h4, header.head h1, .comments, .b-news_wall-topic .title, header.hea
   display: none !important;
 }
 
-.l-top_menu-v2 .menu-icon[data-count]:after {
+.l-top_menu-v2 .menu-icon[data-count]:after,
+.l-top_menu-v2 .menu-dropdown>span[data-unread_count]:after {
   color: #000084 !important;
   border-radius: 0 !important;
   font-family: IBM_VGA8;
   background: transparent !important;
   font-size: 12px !important;
   border: none;
-  top: 5px !important;
+  top: 5px;
+}
+
+.l-top_menu-v2 .menu-dropdown>span[data-unread_count]:after {
+  top: 0px;
+  right: 0px;
 }
 
 .b-main_search ul.popup li {
@@ -1395,9 +1423,14 @@ span.name-ru {
 .b-link_button.arrow-right:after,
 .profile-actions .mail:before,
 .profile-actions .settings:before,
-.profile-actions .ban:before {
+.profile-actions .ban:before,
+.l-top_menu-v2 .menu-icon.trigger:before,
+.l-top_menu-v2 .icon-people:before,
+.l-top_menu-v2 .icon-characters:before {
   font-family: 'Pixelarticons' !important;
   font-weight: 500 !important;
+  font-size: 18px;
+  background-image: none;
 }
 
 .l-top_menu-v2 .icon-forum:before,
@@ -1410,7 +1443,8 @@ span.name-ru {
   vertical-align: -3px;
 }
 
-.l-top_menu-v2 .icon-clubs:before {
+.l-top_menu-v2 .icon-clubs:before,
+.l-top_menu-v2 .icon-people:before {
   content: '\ebd1';
 }
 
@@ -1427,7 +1461,8 @@ span.name-ru {
 }
 
 .l-top_menu-v2 .icon-users:before,
-.l-top_menu-v2 .icon-profile:before {
+.l-top_menu-v2 .icon-profile:before,
+.l-top_menu-v2 .icon-characters:before {
   content: '\ebd0';
 }
 
@@ -1496,4 +1531,10 @@ span.name-ru {
 .b-link_button.arrow-right:after {
   content: '\ea1f';
   vertical-align: -3px;
+}
+
+.l-top_menu-v2 .menu-icon.trigger:before {
+  background-image: none;
+  content: '\ea48';
+  color: #000000;
 }
