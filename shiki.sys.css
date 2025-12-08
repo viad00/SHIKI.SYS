@@ -16,100 +16,83 @@
 ------------------- GitHub: https://github.com/viad00/SHIKI.SYS -------------------
 ---------------------- Shikimori: https://shikimori.org/VIad ----------------------
 -----------------------------------------------------------------------------------
-Credits to:
-[ch1kulya](https://github.com/ch1kulya)
+--------------------- Credits to: https://github.com/ch1kulya ---------------------
+-----------------------------------------------------------------------------------
 */
 
 /* Set fonts */
 @font-face {
-  font-family: IBM_VGA8;
-  /*
+    font-family: IBM_VGA8;
+    /*
      These fonts aren't mine, they are from The Ultimate Oldschool PC Font Pack,
      woff2 version converted from ttf using cli tool,
      see https://int10h.org/oldschool-pc-fonts/
   */
-  src: url(https://raw.githubusercontent.com/viad00/SHIKI.SYS/master/PxPlus_IBM_VGA9.woff2) format("woff2"),
-       url(https://raw.githubusercontent.com/viad00/SHIKI.SYS/master/PxPlus_IBM_VGA9.ttf) format("truetype");
-       /* Originally used VGA8, but later changed to VGA9 */
+    src:
+        url(https://raw.githubusercontent.com/viad00/SHIKI.SYS/master/PxPlus_IBM_VGA9.woff2)
+            format("woff2"),
+        url(https://raw.githubusercontent.com/viad00/SHIKI.SYS/master/PxPlus_IBM_VGA9.ttf)
+            format("truetype");
+    /* Originally used VGA8, but later changed to VGA9 */
 }
 
 @font-face {
-  font-family: MisakiMincho;
-  /* https://littlelimit.net/misaki.htm */
-  src: url(https://raw.githubusercontent.com/viad00/SHIKI.SYS/master/misaki_mincho.ttf) format("truetype");
+    font-family: MisakiMincho;
+    /* https://littlelimit.net/misaki.htm */
+    src: url(https://raw.githubusercontent.com/viad00/SHIKI.SYS/master/misaki_mincho.ttf)
+        format("truetype");
 }
 
 @font-face {
-  font-family: Pixelarticons;
-  /* https://pixelarticons.com/ */
-  src: url(https://raw.githubusercontent.com/viad00/SHIKI.SYS/master/pixelart-icons-font.ttf) format("truetype");
+    font-family: Pixelarticons;
+    /* https://pixelarticons.com/ */
+    src: url(https://raw.githubusercontent.com/viad00/SHIKI.SYS/master/pixelart-icons-font.ttf)
+        format("truetype");
 }
 
-/* Screen-specific */
-/* background color on wide-screens */
+:root {
+    --bg-navy: #000084;
+    --bg-silver: #bbbbbb;
+    --bg-cyan: #00aaaa;
+    --bg-brown: #aa5500;
+    --bg-input: #cfcfcf;
+    --text-yellow: #fefe54;
+    --text-white: #ffffff;
+    --text-black: #000000;
+    --font-main: "IBM_VGA8", monospace;
+    --border-black: 2px solid #000000;
+}
+
+/* Base Layout & Typography */
 body {
-  background: #000084;
-}
-@media screen and (max-width: 1024px) {
-    body {
-        background: navy;
-    }
+    background: var(--bg-navy);
 }
 
-/* Hide news from main page */
-.v2 .block2:last-of-type {
-  display: none;
-}
-
-/* Actions captions on mobile devices */
-@media screen and (max-width: 480px) and (orientation: portrait) {
-    .c-actions .new_comment:after,
-    .c-actions .new_review:after,
-    .c-actions .fav-add:after,
-    .c-actions .edit:after {
-      color: #fefe54;
-  }
-}
-
-/* Search caption on wide-screens */
-@media only screen and (min-width: 1025px) {
-  .b-main_search ul.popup {
-    background: #bbbbbb;
-  }
-}
-
-@media screen and (max-width: 1023px) {
-    .p-dashboards-show .v2 .mobile-slider-prev:after,
-    .p-dashboards-show .v2 .mobile-slider-next:after {
-        color: black;
-        background: #bbbbbb;
-        padding: 3px 3px 0 3px;
-        border: 1px solid black;
-        box-shadow: 0 0 0 0, 2px 3px 0 1px black;
-    }
-    .p-dashboards-show .v2 .mobile-slider-prev:before,
-    .p-dashboards-show .v2 .mobile-slider-next:before,
-    .p-dashboards-show .v2 .mobile-slider-next.bright:before,
-    .p-dashboards-show .v2 .mobile-slider-prev.bright:before {
-        background: none;
-    }
-}
-
-/* Main body */
 .l-page {
-  background: #000084;
-  color: #bbbbbb;
-  font-family: IBM_VGA8;
-  image-rendering: pixelated; /* pixelated images */
+    background: var(--bg-navy);
+    color: var(--bg-silver);
+    font-family: var(--font-main);
+    image-rendering: pixelated;
 }
 
 span {
-  color: #bbbbbb;
+    color: var(--bg-silver);
 }
 
-h1, h2, h3, h4, header.head h1, .comments, .b-news_wall-topic .title, header.head .notice {
-  color: #ffffff !important;
-  font-family: IBM_VGA8 !important;
+/* Headings and Text Overrides */
+h1,
+h2,
+h3,
+h4,
+header.head h1,
+.comments,
+.b-news_wall-topic .title,
+header.head .notice,
+.b-user.detailed .history .line .event,
+.b-user.moderation .history .line .event,
+.l-footer .copyright {
+    color: var(--text-white) !important;
+    font-family: var(--font-main) !important;
 }
 
 .l-footer .copyright,
@@ -117,1282 +100,1446 @@ h1, h2, h3, h4, header.head h1, .comments, .b-news_wall-topic .title, header.hea
 .b-anime_status_tag,
 .misc-links,
 .b-news_line-topic .title span {
-  font-family: IBM_VGA8 !important;
+    font-family: var(--font-main) !important;
 }
 
-.b-to-top .slide:before {
-  background: transparent;
+/* Links */
+.l-page a,
+.b-club .name {
+    color: var(--text-yellow) !important;
+    text-decoration: none !important;
 }
 
-.p-dashboards-show .v2 .fc-user-sections .tag-link {
-  border: none !important;
-  border-radius: 0;
-  font-family: IBM_VGA8;
-  box-shadow: 0 0 0 0, 2px 3px 0 1px black;
-  background-color: #00aaaa !important;
-  color: #000000 !important;
-  transition: none !important;
+.l-page a:hover,
+.l-page a:focus,
+.b-club .name:hover,
+.b-club .name:focus {
+    color: var(--text-yellow);
+    background: var(--bg-brown);
 }
 
-.p-dashboards-show .v2 .fc-user-sections .tag-link:hover {
-  color: #fefe54 !important;
-  background-color: #aa5500 !important;
+.v2 .block2:last-of-type {
+    display: none;
 }
 
-.b-link_button, .b-link_button.dark {
-  color: #000000;
-  background-color: #bbbbbb;
-  box-shadow: 0 0 0 0, 2px 3px 0 1px black;
-  font-family: IBM_VGA8;
-  border: none !important;
-  font-weight: normal;
+/* Top Menu & Navigation */
+.l-top_menu-v2,
+.to-top-fix {
+    background: var(--bg-silver);
+    font-family: var(--font-main);
+}
+
+.l-top_menu-v2 a,
+.to-top-fix a {
+    color: var(--text-black) !important;
+    font-size: 16px !important;
+}
+
+.l-top_menu-v2 .global-search .search-results.is-overflowed-above:before,
+.l-top_menu-v2 .global-search .search-results.is-overflowed-below:after {
+    opacity: 0 !important;
+}
+
+.menu-items > .entry > .contest {
+    background: var(--bg-cyan) !important;
+    border: var(--border-black) !important;
+}
+
+.menu-items > .entry > .contest:hover {
+    background: var(--text-white) !important;
+}
+
+.menu-items > .entry > .contest:before {
+    content: "ok" !important;
+    font-family: var(--font-main) !important;
+}
+
+.menu-items > .entry:hover {
+    background-color: var(--text-black) !important;
+    color: var(--text-white) !important;
+    text-decoration: none;
+}
+
+.menu-items > .entry:hover > a {
+    color: var(--text-white) !important;
+}
+
+.entry > span {
+    color: var(--text-black);
+}
+.entry:hover > span {
+    color: var(--text-white);
+}
+
+.l-top_menu-v2 .menu-items > .entry.selected,
+.l-top_menu-v2 .menu-items > .entry:hover {
+    background: #cccccc;
+}
+
+/* Logo */
+.logo {
+    background: none !important;
+}
+.glyph {
+    display: none !important;
+}
+.logo:before {
+    content: "SHIKIMORI";
+    font-size: 22px;
+}
+.logo:hover,
+.logo-container:hover {
+    color: var(--bg-navy);
+}
+
+/* Global Search */
+.l-top_menu-v2 .global-search input {
+    background-color: var(--bg-input);
+    color: var(--text-black);
+    border: var(--border-black);
+}
+
+.l-top_menu-v2.is-search-focus .global-search .search-marker,
+.l-top_menu-v2 .global-search .search-marker,
+.l-top_menu-v2 .global-search .clear,
+.l-top_menu-v2 .global-search .hotkey-marker,
+.l-top_menu-v2 .global-search .hotkey-marker::before,
+.l-top_menu-v2 .global-search input::placeholder {
+    color: var(--text-black) !important;
+    opacity: 0.8;
+}
+
+.l-top_menu-v2 .global-search .hotkey-marker {
+    border: none;
+    font-size: 25px;
+}
+
+.l-top_menu-v2 .global-search .search-results .search-mode,
+.l-top_menu-v2 .global-search .search-results .search-mode.active {
+    border-top: var(--border-black);
+    background: var(--bg-silver);
+}
+
+.l-top_menu-v2
+    .global-search
+    .search-results
+    .b-db_entry-variant-list_item
+    + .b-db_entry-variant-list_item,
+.l-top_menu-v2
+    .global-search
+    .search-results
+    .b-db_entry-variant-list_item
+    + .search-mode,
+.l-top_menu-v2
+    .global-search
+    .search-results
+    .b-db_entry-variant-list_item.active
+    + .b-db_entry-variant-list_item,
+.l-top_menu-v2
+    .global-search
+    .search-results
+    .b-db_entry-variant-list_item.active
+    + .search-mode {
+    border-top: var(--border-black);
+    background: transparent;
+    transition: none;
+}
+
+.l-top_menu-v2
+    .global-search
+    .search-results
+    .b-db_entry-variant-list_item.active {
+    background: transparent;
+}
+
+.l-top_menu-v2
+    .global-search
+    .search-results
+    .b-db_entry-variant-list_item.active:before {
+    background: var(--text-yellow);
+}
+
+.l-top_menu-v2
+    .global-search
+    .search-results
+    .b-db_entry-variant-list_item
+    .image
+    img {
+    border: var(--border-black);
+    box-shadow:
+        0 0 0 0,
+        2px 3px 0 1px black;
+}
+
+.b-db_entry-variant-list_item > .info .line .key,
+.b-entry-info .line .key {
+    color: var(--text-white);
+}
+
+.l-top_menu-v2 .global-search .search-results {
+    background: var(--bg-navy);
+    border: var(--border-black);
+    box-shadow:
+        0 0 0 0,
+        5px 6px 0 3px black;
+}
+
+.l-top_menu-v2 .global-search .search-results .inner::-webkit-scrollbar {
+    display: none;
+}
+
+.l-top_menu-v2 .global-search .search-results .inner {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.l-top_menu-v2 .global-search .search-results .search-mode.active,
+.l-top_menu-v2 .global-search .search-results .search-mode:hover {
+    background: var(--bg-silver);
+}
+
+.l-top_menu-v2 .global-search .search-results .search-mode.active:before,
+.l-top_menu-v2 .global-search .search-results .search-mode:focus:before {
+    background: var(--bg-navy);
+}
+
+.l-top_menu-v2 .global-search .search-results .nothing_found {
+    color: var(--text-black);
+    background: var(--bg-silver);
+}
+
+.l-top_menu-v2 .global-search .search-results .b-ajax::before {
+    background: var(--bg-silver);
+}
+
+/* Spinner Animation */
+.l-top_menu-v2 .global-search .search-results .b-ajax::after {
+    content: "[-]";
+    font-family: var(--font-main);
+    color: var(--bg-navy);
+    background: transparent;
+    padding: 5px;
+    position: absolute;
+    font-size: 40px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: dos-spinner 0.8s infinite;
+}
+
+@keyframes dos-spinner {
+    0% {
+        content: "[-]";
+    }
+    25% {
+        content: "[\\]";
+    }
+    50% {
+        content: "[|]";
+    }
+    75% {
+        content: "[/]";
+    }
+    100% {
+        content: "[-]";
+    }
+}
+
+.global-search
+    .search-results
+    .search-mode.active
+    + .b-db_entry-variant-list_item,
+.l-top_menu-v2
+    .global-search
+    .search-results
+    .search-mode.active
+    + .search-mode,
+.l-top_menu-v2
+    .global-search
+    .search-results
+    .search-mode:focus
+    + .b-db_entry-variant-list_item,
+.l-top_menu-v2
+    .global-search
+    .search-results
+    .search-mode:focus
+    + .search-mode {
+    border-top-color: var(--text-black);
+}
+
+/* Main Search on Page */
+.b-main_search .input {
+    background-color: var(--bg-input);
+    border: var(--border-black);
+}
+
+.b-main_search .input input {
+    font-family: var(--font-main) !important;
+}
+
+.b-main_search ul.popup li {
+    background: var(--bg-silver);
+    font-family: var(--font-main);
+    color: var(--text-black);
+}
+
+.b-main_search ul.popup li:hover,
+.b-main_search ul.popup li.active {
+    background: var(--text-black);
+    color: var(--text-white);
+}
+
+/* Menu Dropdowns */
+.l-top_menu-v2 .menu-dropdown .submenu-triangle:hover,
+.l-top_menu-v2 .menu-icon.active,
+.l-top_menu-v2 .menu-icon:focus,
+.l-top_menu-v2 .menu-dropdown.active > span,
+.l-top_menu-v2 .menu-dropdown > span:focus,
+.l-top_menu-v2 .menu-dropdown > span,
+.l-top_menu-v2.is-search-mobile .global-search {
+    background: var(--bg-silver);
+}
+
+.l-top_menu-v2 .menu-dropdown .submenu > a[class*="icon-"],
+.l-top_menu-v2 .menu-dropdown .submenu > a[class*="icon-"] span {
+    background: var(--bg-silver);
+    color: var(--text-black) !important;
+    font-family: var(--font-main);
+}
+
+.l-top_menu-v2 .menu-dropdown .submenu > a[class*="icon-"].active,
+.l-top_menu-v2 .menu-dropdown .submenu > a[class*="icon-"].active span {
+    background: var(--text-black) !important;
+    color: var(--text-white) !important;
+}
+
+.l-top_menu-v2 .menu-dropdown .submenu .legend {
+    color: #555555;
+    font-family: var(--font-main);
+    background: var(--bg-silver);
+}
+
+.l-top_menu-v2 .menu-dropdown .submenu-triangle img {
+    border: var(--border-black);
+}
+
+.l-top_menu-v2 .menu-dropdown .submenu-triangle,
+.l-top_menu-v2 .menu-dropdown .submenu-triangle span {
+    font-family: var(--font-main);
+    color: var(--text-black) !important;
+    background: var(--bg-silver);
+    transition: none !important;
+}
+
+.l-top_menu-v2 .menu-dropdown.active .submenu-triangle,
+.l-top_menu-v2 .menu-dropdown.active .submenu-triangle span {
+    background: var(--text-black);
+    color: var(--text-white) !important;
+}
+
+.l-top_menu-v2 .menu-dropdown .submenu {
+    background: var(--bg-silver);
+    border: var(--border-black);
+    font-family: var(--font-main);
+}
+
+.l-top_menu-v2 .menu-icon {
+    color: var(--text-black);
+}
+
+.l-top_menu-v2 .menu-icon:hover {
+    color: var(--bg-navy) !important;
+    background: none;
+}
+
+.l-top_menu-v2 .submenu .icon-socials {
+    display: none !important;
+}
+
+.l-top_menu-v2 .menu-icon[data-count]:after,
+.l-top_menu-v2 .menu-dropdown > span[data-unread_count]:after {
+    color: var(--bg-navy) !important;
+    border-radius: 0 !important;
+    font-family: var(--font-main);
+    background: transparent !important;
+    font-size: 12px !important;
+    border: none;
+    top: 5px;
+}
+
+.l-top_menu-v2 .menu-dropdown > span[data-unread_count]:after {
+    top: 0px;
+    right: 0px;
+}
+
+.l-top_menu-v2 .menu-userbox .arrow-container .arrow-down {
+    border-color: var(--text-black) transparent transparent transparent;
+}
+
+.l-top_menu-v2 .submenu > .entry.active {
+    color: var(--text-white) !important;
+}
+
+/* Mobile Menu Colors */
+.l-top_menu-v2 .menu-mobile .search,
+.l-top_menu-v2 .menu-mobile .menu,
+.l-top_menu-v2 .menu-mobile #sign_in,
+.l-top_menu-v2 .menu-userbox .search,
+.l-top_menu-v2 .menu-userbox .menu,
+.l-top_menu-v2 .menu-userbox #sign_in {
+    color: var(--text-black);
+}
+
+/* User Interface Elements (Buttons, Inputs) */
+.b-form input[type="submit"],
+.b-button {
+    font-family: var(--font-main);
+    color: var(--text-black);
+    background: var(--bg-silver);
+    padding: 10px 10px;
+    box-shadow: 10px 10px 0 #000000;
+    margin-bottom: 10px;
+}
+
+.b-form input[type="submit"]:hover,
+.b-form input[type="submit"]:focus,
+.b-button:hover {
+    color: var(--text-white);
+    text-decoration: none;
+    background: #555555;
+    outline: 0;
+}
+
+.b-form input[type="submit"]:active,
+.b-button:active {
+    box-shadow: 0 0 0;
+}
+
+.cancel {
+    background: #666666;
+    padding: 10px 10px;
+    box-shadow: 10px 10px 0 #000000;
+    font-family: var(--font-main);
+}
+
+.b-form .cancel {
+    color: var(--text-yellow);
+}
+
+input {
+    border: var(--border-black);
+}
+
+input,
+select,
+button,
+textarea {
+    font-family: var(--font-main);
+}
+
+.b-input input,
+.b-input textarea {
+    background: var(--bg-silver);
+    color: var(--text-black);
+    box-shadow: 3px 3px 0 #000000;
+}
+
+.b-input input[type="file"],
+.b-input textarea[type="file"] {
+    background: var(--bg-cyan);
+}
+
+.b-input select {
+    color: black;
+}
+
+/* Buttons */
+.b-link_button,
+.b-link_button.dark {
+    color: var(--text-black);
+    background-color: var(--bg-silver);
+    box-shadow:
+        0 0 0 0,
+        2px 3px 0 1px black;
+    font-family: var(--font-main);
+    border: none !important;
+    font-weight: normal;
 }
 
 .b-link_button span {
-  color: #000000;
-  font-weight: normal;
+    color: var(--text-black);
+    font-weight: normal;
 }
 
 .b-link_button.create-topic:before {
-  font-family: IBM_VGA8;
+    font-family: var(--font-main);
 }
 
-.b-link_button:hover span, .b-link_button.dark:hover span {
-  color: #fefe54 !important;
+.b-link_button:hover span,
+.b-link_button.dark:hover span {
+    color: var(--text-yellow) !important;
 }
 
-.b-link_button:hover, .b-link_button.dark:hover {
-  color: #fefe54 !important;
-  background-color: #aa5500;
+.b-link_button:hover,
+.b-link_button.dark:hover {
+    color: var(--text-yellow) !important;
+    background-color: var(--bg-brown);
+}
+
+a.b-link_button {
+    color: var(--text-black) !important;
+}
+
+/* Options Floating */
+.b-options-floated {
+    background: var(--bg-silver);
+    border: var(--border-black);
+    box-shadow:
+        0 0 0 5px,
+        11px 13px 0 4px black;
+}
+
+.b-options-floated a {
+    padding: 4px;
+    color: var(--text-black) !important;
+    font-size: 12px;
+}
+
+.b-options-floated span,
+.b-options-floated span:before,
+.b-options-floated span:after {
+    color: var(--text-black) !important;
+    font-size: 12px;
+}
+
+.b-options-floated a:hover,
+.b-options-floated a:focus {
+    color: var(--text-white) !important;
+    background: var(--text-black);
+}
+
+.b-options-floated.count {
+    color: var(--text-black);
+    border: none;
+    box-shadow: 5px 5px 0 #000000;
+    padding: 4px;
+}
+
+/* Tooltips */
+.tooltip-inner {
+    background: navy;
+    color: var(--bg-silver);
+    font-family: var(--font-main);
+}
+
+.tooltip-inner .close {
+    color: var(--text-white);
+    background: transparent;
+}
+
+.tipsy-inner {
+    font-family: var(--font-main);
+    background: var(--bg-silver);
+    color: var(--bg-navy);
+    border-radius: 0;
+    box-shadow: 2px 2px 0 #000000;
+    -webkit-box-shadow: 2px 2px 0 #000000;
+}
+
+.tipsy-arrow {
+    display: none;
+}
+.tipsy {
+    opacity: 1 !important;
+}
+
+/* Breadcrumbs & Headlines */
+.b-breadcrumbs a:hover,
+.b-breadcrumbs a:focus {
+    background: var(--text-black);
+}
+
+.headline,
+.midheadline,
+.subheadline {
+    background: transparent;
+    padding: 5px 0 20px;
+    margin: 0 0 20px;
+    font-family: var(--font-main) !important;
+    border-left: none;
+    font-size: 24px;
+}
+
+#dashboards_show
+    > section
+    > div
+    > div
+    > div:nth-child(5)
+    > div
+    > div:nth-child(2)
+    > div.headline,
+.subheadline,
+.b-hot_topics-v2 .subject {
+    color: var(--text-white);
+}
+
+/* Dashboards & User Profiles */
+.p-dashboards-show .v2 .fc-user-sections .tag-link {
+    border: none !important;
+    border-radius: 0;
+    font-family: var(--font-main);
+    box-shadow:
+        0 0 0 0,
+        2px 3px 0 1px black;
+    background-color: var(--bg-cyan) !important;
+    color: var(--text-black) !important;
+    transition: none !important;
+}
+
+.p-dashboards-show .v2 .fc-user-sections .tag-link:hover {
+    color: var(--text-yellow) !important;
+    background-color: var(--bg-brown) !important;
 }
 
 .p-dashboards-show .v2 .my-list {
-  background: transparent;
-  border: 2px dotted #fefe54;
+    background: transparent;
+    border: 2px dotted var(--text-yellow);
 }
 
 .p-dashboards-show .v2 .my-list .label span,
 .b-user_rate-history .status-counter,
 .b-user_rate-history .score-time time {
-  color: #fefe54;
+    color: var(--text-yellow);
 }
 
 .b-user_rate-history .progress {
-  background-color: #bbbbbb;
+    background-color: var(--bg-silver);
 }
 
-.tooltip-inner .close {
-  color: white;
-  background: transparent;
+.p-dashboards-show .c-content .options .option {
+    color: lightblue;
 }
 
-/* Links */
-.l-page a {
-  color: #fefe54 !important;
-  text-decoration: none !important;
+.p-dashboards-show .c-my_list {
+    background: #777777;
+    color: black;
+    border: var(--border-black);
+    box-shadow: 10px 10px 0 #000000;
 }
 
-.l-page a:hover,
-.l-page a:focus {
-  color: #fefe54;
-  background: #aa5500;
+.p-dashboards .user_list .list-change .note {
+    color: black;
 }
 
-/* Top menu */
-.l-top_menu-v2, .to-top-fix {
-  background: #bbbbbb;
-  font-family: IBM_VGA8;
+.title > span,
+.p-dashboards .user_list .list-type > .title .switch,
+.p-dashboards .user_list .history > .title .switch {
+    color: var(--text-yellow);
 }
 
-.b-hot_topics-v2 {
-  background-color: transparent;
-  border-bottom: none;
-}
-
-.l-top_menu-v2 .global-search .search-results.is-overflowed-above:before,
-.l-top_menu-v2 .global-search .search-results.is-overflowed-below:after {
-  opacity: 0 !important;
-}
-
-.l-top_menu-v2 a, .to-top-fix a {
-  color: #000000 !important;
-  font-size: 16px !important;
-}
-
-.menu-items > .entry > .contest {
-  background: #00aaaa !important;
-  border: 2px solid #000000 !important;
-}
-
-.menu-items > .entry > .contest:hover {
-  background: #ffffff !important;
-}
-
-.menu-items > .entry > .contest:before {
-  content: "ok" !important;
-  font-family: IBM_VGA8 !important;
-}
-
-.menu-items>.entry:hover {
-    background-color: #000000 !important;
-    color: #ffffff !important;
-    text-decoration: none;
-}
-
-.menu-items>.entry:hover > a {
-    color: #ffffff !important;
-}
-
-.entry > span {
-  color: #000000;
-}
-
-.entry:hover > span {
-  color: #ffffff;
-}
-
-.headline, .midheadline, .subheadline {
-  background: transparent;
-  padding: 5px 0 20px;
-  margin: 0 0 20px;
-  font-family: IBM_VGA8 !important;
-  border-left: none;
-  font-size: 24px;
-}
-
-#dashboards_show > section > div > div > div:nth-child(5) > div > div:nth-child(2) > div.headline,
-.subheadline,
-.b-hot_topics-v2 .subject {
-  color: white;
-}
-
-.logo {
-  background: none !important;
-}
-
-.glyph {
-  display: none !important;
-}
-
-.logo:before {
-  content: "SHIKIMORI";
-  font-size: 22px;
-}
-
-.logo:hover, .logo-container:hover {
-  color: #000084;
-}
-
-.l-top_menu-v2 .global-search input {
-  background-color: #cfcfcf;
-  color: #000000;
-  border: 2px solid #000000;
-}
-
-.l-top_menu-v2.is-search-focus .global-search .search-marker,
-.l-top_menu-v2 .global-search .search-marker,
-.l-top_menu-v2 .global-search .clear
-.l-top_menu-v2 .global-search .hotkey-marker,
-.l-top_menu-v2 .global-search .hotkey-marker::before,
-.l-top_menu-v2 .global-search input::placeholder {
-  color: #000000 !important;
-  opacity: 0.8;
-}
-
-.l-top_menu-v2 .global-search .hotkey-marker {
-  border: none;
-  font-size: 25px;
-}
-
-.l-top_menu-v2 .global-search .search-results .search-mode,
-.l-top_menu-v2 .global-search .search-results .search-mode.active {
-  border-top: 2px solid #000000;
-  background: #bbbbbb;
-}
-
-.l-top_menu-v2 .global-search .search-results .b-db_entry-variant-list_item+.b-db_entry-variant-list_item,
-.l-top_menu-v2 .global-search .search-results .b-db_entry-variant-list_item+.search-mode,
-.l-top_menu-v2 .global-search .search-results .b-db_entry-variant-list_item.active+.b-db_entry-variant-list_item,
-.l-top_menu-v2 .global-search .search-results .b-db_entry-variant-list_item.active+.search-mode {
-  border-top: 2px solid #000000;
-  background: transparent;
-  transition: none;
-}
-
-.l-top_menu-v2 .global-search .search-results .b-db_entry-variant-list_item.active {
-  background: transparent;
-}
-
-.l-top_menu-v2 .global-search .search-results .b-db_entry-variant-list_item.active:before {
-  background: #fefe54;
-}
-
-.l-top_menu-v2 .global-search .search-results .b-db_entry-variant-list_item .image img {
-  border: 2px solid #000000;
-  box-shadow: 0 0 0 0, 2px 3px 0 1px black;
-}
-
-.b-db_entry-variant-list_item > .info .line .key,
-.b-entry-info .line .key {
-  color: #ffffff;
-}
-
-.l-top_menu-v2 .global-search .search-results {
-  background: #000084;
-  border: 2px solid #000000;
-  box-shadow: 0 0 0 0, 5px 6px 0 3px black;
-}
-
-.l-top_menu-v2 .global-search .search-results .inner::-webkit-scrollbar {
-  display: none;
-}
-
-.l-top_menu-v2 .global-search .search-results .inner {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.l-top_menu-v2 .global-search .search-results .search-mode.active,
-.l-top_menu-v2 .global-search .search-results .search-mode:hover {
-  background: #bbbbbb;
-}
-
-.l-top_menu-v2 .global-search .search-results .search-mode.active:before,
-.l-top_menu-v2 .global-search .search-results .search-mode:focus:before{
-  background: #000084;
-}
-
-.l-top_menu-v2 .global-search .search-results .nothing_found {
-  color: #000000;
-  background: #bbbbbb;
-}
-
-.l-top_menu-v2 .global-search .search-results .b-ajax::before {
-  background: #bbbbbb;
-}
-
-.l-top_menu-v2 .global-search .search-results .b-ajax::after {
-  content: "[-]";
-  font-family: IBM_VGA8;
-  color: #000084;
-  background: transparent;
-  padding: 5px;
-  position: absolute;
-  font-size: 40px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  animation: dos-spinner 0.8s infinite;
-}
-
-@keyframes dos-spinner {
-  0% { content: "[-]"; }
-  25% { content: "[\\]"; }
-  50% { content: "[|]"; }
-  75% { content: "[/]"; }
-  100% { content: "[-]"; }
-}
-
-.global-search .search-results .search-mode.active+.b-db_entry-variant-list_item, .l-top_menu-v2 .global-search
-.search-results .search-mode.active+.search-mode, .l-top_menu-v2 .global-search .search-results .search-mode:focus+.b-db_entry-variant-list_item,
-.l-top_menu-v2 .global-search .search-results .search-mode:focus+.search-mode {
-  border-top-color: #000000;
-}
-
-.b-main_search .input {
-  background-color: #cfcfcf;
-  border: 2px solid #000000;
-}
-
-.b-main_search .input input {
-  font-family: IBM_VGA8 !important;
-}
-
-.b-options-floated {
-  background: #bbbbbb;
-  border: 2px solid #000000;
-  box-shadow: 0 0 0 5px, 11px 13px 0 4px black;
-}
-
-.b-options-floated a {
-  padding: 4px;
-  color: #000000 !important;
-  font-size: 12px;
-}
-
-.b-options-floated span {
-  color: #000000 !important;
-  font-size: 12px;
-}
-
-.b-options-floated span:before {
-  color: #000000 !important;
-  font-size: 12px;
-}
-
-.b-options-floated span:after {
-  color: #000000 !important;
-  font-size: 12px;
-}
-
-.b-options-floated a:hover,
-.b-options-floated a:focus {
-  color: #ffffff !important;
-  background: #000000;
-}
-
-.b-breadcrumbs a:hover,
-.b-breadcrumbs a:focus {
-  background: #000000;
-}
-
-.l-top_menu-v2 .menu-dropdown .submenu-triangle:hover,
-.l-top_menu-v2 .menu-icon.active, .l-top_menu-v2 .menu-icon:focus,
-.l-top_menu-v2 .menu-dropdown.active>span,
-.l-top_menu-v2 .menu-dropdown>span:focus,
-.l-top_menu-v2 .menu-dropdown>span,
-.l-top_menu-v2.is-search-mobile .global-search {
-  background: #bbbbbb;
-}
-
-.l-top_menu-v2 .menu-dropdown .submenu > a[class*="icon-"],
-.l-top_menu-v2 .menu-dropdown .submenu > a[class*="icon-"] span {
-  background: #bbbbbb;
-  color: #000000 !important;
-  font-family: IBM_VGA8;
-}
-
-.l-top_menu-v2 .menu-dropdown .submenu > a[class*="icon-"].active,
-.l-top_menu-v2 .menu-dropdown .submenu > a[class*="icon-"].active span {
-  background: #000000 !important;
-  color: #ffffff !important;
-}
-
-.l-top_menu-v2 .menu-dropdown .submenu .legend {
-  color: #555555;
-  font-family: IBM_VGA8;
-  background: #bbbbbb;
-}
-
-.l-top_menu-v2 .menu-dropdown .submenu-triangle img {
-  border: 2px solid #000000;
-}
-
-.l-top_menu-v2 .menu-dropdown .submenu-triangle,
-.l-top_menu-v2 .menu-dropdown .submenu-triangle span {
-  font-family: IBM_VGA8;
-  color: #000000 !important;
-  background: #bbbbbb;
-  transition: none !important;
-}
-
-.l-top_menu-v2 .menu-dropdown.active .submenu-triangle,
-.l-top_menu-v2 .menu-dropdown.active .submenu-triangle span {
-  background: #000000;
-  color: #ffffff !important;
-}
-
-.l-top_menu-v2 .menu-dropdown .submenu {
-  background: #bbbbbb;
-  border: 2px solid #000000;
-  font-family: IBM_VGA8;
-}
-
-.l-top_menu-v2 .menu-icon {
-  color: #000000;
-}
-
-.l-top_menu-v2 .menu-icon:hover {
-  color: #000084 !important;
-  background: none;
-}
-
-.l-top_menu-v2 .submenu .icon-socials {
-  display: none !important;
-}
-
-.l-top_menu-v2 .menu-icon[data-count]:after,
-.l-top_menu-v2 .menu-dropdown>span[data-unread_count]:after {
-  color: #000084 !important;
-  border-radius: 0 !important;
-  font-family: IBM_VGA8;
-  background: transparent !important;
-  font-size: 12px !important;
-  border: none;
-  top: 5px;
-}
-
-.l-top_menu-v2 .menu-dropdown>span[data-unread_count]:after {
-  top: 0px;
-  right: 0px;
-}
-
-.b-main_search ul.popup li {
-  background: #bbbbbb;
-  font-family: IBM_VGA8;
-  color: #000000;
-}
-
-.b-main_search ul.popup li:hover,
-.b-main_search ul.popup li.active {
-  background: #000000;
-  color: #ffffff;
-}
-
-.l-top_menu-v2 .menu-userbox .arrow-container .arrow-down {
-  border-color: #000000 transparent transparent transparent;
-}
-
-.avatar > img {
-  border: 2px solid #000000;
-  box-shadow: 3px 3px 0 #000000;
-}
-
-.l-top_menu-v2 .menu-items>.entry.selected, .l-top_menu-v2 .menu-items>.entry:hover {
-  background: #cccccc;
-}
-
-/* Buttons and etc */
-.b-form input[type=submit], .b-button {
-  font-family: IBM_VGA8;
-  color: #000000;
-  background: #bbbbbb;
-  padding: 10px 10px;
-  box-shadow: 10px 10px 0 #000000;
-  margin-bottom: 10px;
-}
-
-.b-form input[type=submit]:hover, .b-form input[type=submit]:focus, .b-button:hover {
-  color: #ffffff;
-  text-decoration: none;
-  background: #555555;
-  outline: 0;
-}
-
-.b-form input[type=submit]:active, .b-button:active {
-  box-shadow: 0 0 0;
-}
-
-.cancel {
-  background: #666666;
-  padding: 10px 10px;
-  box-shadow: 10px 10px 0 #000000;
-  font-family: IBM_VGA8;
-}
-
-input {
-  border: 2px solid #000000;
-}
-
-input, select, button, textarea {
-  font-family: IBM_VGA8;
-}
-
-.b-input input, .b-input textarea {
-  background: #bbbbbb;
-  color: #000000;
-  box-shadow: 3px 3px 0 #000000;
-}
-
-.b-input input[type=file], .b-input textarea[type=file] {
-  background: #00aaaa;
-}
-
-.b-input select {
-  color: black;
-}
-
-a.b-link_button {
-  color: #000000 !important;
-}
-
-/* User list */
+/* User Rates List */
 .p-user_rates-index .list-lines .selectable:hover {
-  color: black;
-  background: #00aaaa;
+    color: black;
+    background: var(--bg-cyan);
 }
 
 .p-user_rates-index .list-lines .selectable:hover .index span,
 .p-user_rates-index .list-lines .selectable:hover .num span {
-  color: black;
+    color: black;
 }
 
 .b-block_list li {
-  color: #bbbbbb;
-  font-family: IBM_VGA8;
+    color: var(--bg-silver);
+    font-family: var(--font-main);
 }
 
 .p-user_rates-index .list-groups .summary.lines {
-  color: #ffffff;
-  font-family: IBM_VGA8;
+    color: var(--text-white);
+    font-family: var(--font-main);
 }
 
 .p-user_rates-index .list-lines tr td .ongoing {
-  color: #00ff00;
+    color: #00ff00;
 }
-
 .p-user_rates-index .list-lines tr td .anons {
-    color: #FF00ff;
+    color: #ff00ff;
 }
-
 .p-user_rates-index .list-lines tr td .episodes_total {
-    color: #bbbbbb;
+    color: var(--bg-silver);
     font-size: 12px;
 }
-
 .p-user_rates-index .l-content .order-control {
-    color: #bbbbbb;
+    color: var(--bg-silver);
 }
 
 .b-list_switchers .switcher.lines:before {
-  content: "L";
-  font-family: IBM_VGA8;
+    content: "L";
+    font-family: var(--font-main);
 }
-
 .b-list_switchers .switcher.posters:before {
-  content: "P";
-  font-family: IBM_VGA8;
+    content: "P";
+    font-family: var(--font-main);
 }
 
-header.head .misc, header.head a.edit {
-  font-family: IBM_VGA8;
+.p-user_rates-index .list-lines tr.edit-form form {
+    background: green;
+    color: black;
 }
 
-.b-collection_search .field input {
-  background: #bbbbbb;
-  font-family: IBM_VGA8;
-  color: #000000;
-  border: 2px solid #000000;
-  box-shadow: 10px 10px 0 #000000;
+#user_rates_index
+    > section
+    > div
+    > div
+    > div.menu-slide-outer.x199
+    > div
+    > div
+    > div.subheadline,
+#user_rates_index
+    > section
+    > div
+    > div
+    > div.menu-slide-outer.x199
+    > div
+    > div
+    > div.subheadline-buttons
+    > div {
+    margin-top: 30px;
 }
 
-.b-collection_search .field input::placeholder {
-  color: #111111;
+#user_rates_index
+    > section
+    > div
+    > div
+    > div.menu-slide-outer.x199
+    > div
+    > div
+    > div.subheadline-buttons
+    > div {
+    background: var(--bg-silver);
+    border: var(--border-black);
+    box-shadow:
+        0 0 0 3px,
+        5px 6px 0 3px black;
 }
 
-/* User page */
+/* User Page Specifics */
 .p-profiles-show .achievements .header .title {
-  color: #ffffff;
+    color: var(--text-white);
 }
 
-.tipsy-inner {
-  font-family: IBM_VGA8;
-  background: #bbbbbb;
-  color: #000084;
-  border-radius: 0;
-  box-shadow: 2px 2px 0 #000000;
-  -webkit-box-shadow: 2px 2px 0 #000000;
+.avatar center a img,
+.avatar > img {
+    border: var(--border-black);
+    box-shadow: 3px 3px 0 #000000;
 }
-
-.tipsy-arrow {
-  display: none;
-}
-
-.tipsy {
-  opacity: 1 !important;
-}
-
-.editor-container .b-options-floated {
-  display: none;
-}
-
 .avatar center a img {
-  box-shadow: 10px 10px 0 #000000;
+    box-shadow: 10px 10px 0 #000000;
 }
 
 .b-stats_bar.anime .bar .first {
-  background: blue;
+    background: blue;
 }
-
 .b-stats_bar.anime .bar .second {
-  background: cyan;
-  color: black;
+    background: cyan;
+    color: black;
 }
-
 .b-stats_bar.manga .bar .first {
-  background: violet;
+    background: violet;
 }
-
 .b-stats_bar.manga .bar .second {
-  background: pink;
-  color: black;
+    background: pink;
+    color: black;
 }
-
 .b-stats_bar .title {
-  color: #bbbbbb;
+    color: var(--bg-silver);
 }
 
 .p-profiles-show .profile-content .activity .title,
 .bar.vertical .line .x_label {
-  color: #bbbbbb;
+    color: var(--bg-silver);
 }
 
-.bar.vertical .line .bar-container .bar{
-  background: gold;
+.bar.vertical .line .bar-container .bar {
+    background: gold;
 }
 
 .bar.simple .bar.s0,
 .bar.simple .bar.s1,
 .bar.simple .bar.s2,
-.bar.simple .bar.s3{
-  background: #00aaaa;
+.bar.simple .bar.s3 {
+    background: var(--bg-cyan);
 }
 
 .bar.vertical .line .x_label {
-  bottom: -25px;
-  font-size: 12px;
-  color: white;
+    bottom: -25px;
+    font-size: 12px;
+    color: white;
 }
 
 .bar.vertical .line .bar-container .value {
-  color: black;
+    color: black;
 }
 
 .bar.simple .bar:hover.s0,
 .bar.simple .bar:hover.s1,
 .bar.simple .bar:hover.s2,
 .bar.simple .bar:hover.s3 {
-  background: white;
+    background: white;
 }
 
 .bar.horizontal .line .bar-container .value {
-color: black;
-}
-
-.b-catalog_entry .cover .misc span {
-  color: #bbbbbb;
-}
-
-.b-shiki_editor .body .editor textarea {
-  background: #bbbbbb;
-  font-family: IBM_VGA8;
-  color: black;
-  border: 2px solid black;
-}
-
-.b-shiki_editor .body .editor textarea::placeholder {
-  color: black;
+    color: black;
 }
 
 .p-profiles .profile-head .c-info .c-additionals b {
-  color: white;
+    color: white;
 }
 
-/* Main page */
-.blue {
-  color: cyan;
+.p-profiles .profile-head .c-history .entry .misc {
+    color: var(--bg-silver) !important;
 }
 
-.p-dashboards-show .c-content .options .option {
-  color: lightblue;
+.p-profiles .profile-head .c-history .entry img {
+    box-shadow: 5px 5px 0 #000000;
+}
+
+.p-profiles .profile-head .c-brief header h1.aliases:after {
+    color: white;
+}
+
+.b-stats_bar .bar .third {
+    background: white;
+}
+.b-stats_bar.lifetime .bar .first {
+    background: red;
+}
+
+.p-profiles-show .lifetime .cuts .cut {
+    background: black;
+    height: 15px;
+}
+
+.p-profiles-show .lifetime .bar {
+    border: var(--border-black);
+    height: 15px;
+    line-height: 15px;
+    box-shadow: 3px 3px 0 #000000;
+}
+
+.p-profiles-show .profile-content .graph {
+    background: grey;
+    box-shadow: 3px 3px 0 #000000;
+    border: 4px double black;
+}
+
+.p-profiles-show .lifetime .times .time.checked {
+    color: var(--bg-silver);
+}
+.p-profiles-show .lifetime .times .time {
+    color: white;
+}
+
+.p-profiles-show .lifetime .times .time.checked:before {
+    color: lime;
+    font-family: var(--font-main);
+    font-size: 14px;
+}
+
+.p-profiles-show .lifetime .title .value {
+    color: white;
+}
+
+.b-stats_bar .bar {
+    height: 20px;
+    line-height: 20px;
+    border: var(--border-black);
+}
+
+.b-stats_bar .bar .first,
+.b-stats_bar .bar .second,
+.b-stats_bar .bar .third {
+    line-height: 20px;
+    font-size: 15px;
+}
+
+/* Catalog & Editor */
+.b-catalog_entry .cover .misc span {
+    color: var(--bg-silver);
+}
+
+.b-shiki_editor .body .editor textarea {
+    background: var(--bg-silver);
+    font-family: var(--font-main);
+    color: black;
+    border: var(--border-black);
+}
+
+.b-shiki_editor .body .editor textarea::placeholder {
+    color: black;
+}
+.editor-container .b-options-floated {
+    display: none;
 }
 
 .b-hot_topics {
-  background: #888888;
+    background: #888888;
 }
-
 .b-hot_topics .topic.subject {
-  color: white;
+    color: white;
+}
+.b-hot_topics-v2 {
+    background-color: transparent;
+    border-bottom: none;
 }
 
 .b-link > span {
-  color: #fefe54;
-}
-
-.p-dashboards-show .c-my_list {
-  background: #777777;
-  color: black;
-  border: 2px solid black;
-  box-shadow: 10px 10px 0 #000000;
-}
-
-.p-dashboards .user_list .list-change .note {
-  color: black;
-}
-
-.title > span,
-.p-dashboards .user_list .list-type>.title .switch, .p-dashboards .user_list .history>.title .switch {
-  color: #fefe54;
+    color: var(--text-yellow);
 }
 
 .b-catalog_entry .cover .image-decor .image-cutter {
-  box-shadow: 5px 5px 0 #000000;
+    box-shadow: 5px 5px 0 #000000;
 }
 
 .b-shiki_wall {
-  background: #000000;
-  box-shadow: 15px 15px 0 #000000;
+    background: var(--text-black);
+    box-shadow: 15px 15px 0 #000000;
 }
 
-.tooltip-inner {
-  background: navy;
-  color: #bbbbbb;
-  font-family: IBM_VGA8;
-}
-
-/* catalog tooltip */
 .b-catalog_entry-tooltip .inner .additional-images .link .title {
-  color: #bbbbbb;
+    color: var(--bg-silver);
 }
 
 .b-catalog_entry-tooltip .inner .rating {
-  font-family: IBM_VGA8;
+    font-family: var(--font-main);
 }
 
 .b-catalog_entry-tooltip .inner .rating .text {
-  color: #bbbbbb;
+    color: var(--bg-silver);
 }
 
 .b-height_shortener .shade {
-  background: none;
+    background: none;
 }
 
 .b-offtopic_marker,
 .b-offtopic_marker:before {
-  font-family: IBM_VGA8  !important;
+    font-family: var(--font-main) !important;
 }
 
-/* Anime/Manga info */
-
+/* Anime/Manga/Ranobe Info */
 .p-animes-show .c-info-right .watch-online .kind,
 .p-mangas-show .c-info-right .watch-online .kind,
 .p-ranobe-show .c-info-right .watch-online .kind,
 .b-status-line .section.main .comments:before,
 .b-critique_votes:before,
-.b-review-topic.is-review_review_author_details>.inner .review-details .b-status-line,
+.b-review-topic.is-review_review_author_details
+    > .inner
+    .review-details
+    .b-status-line,
 .b-entry-info .line .value,
-.b-review-topic.is-review_review_author_details>.inner .review-info .neutral,
-.b-review-topic.is-review_review_author_details>.inner .review-info .positive,
-.b-review-topic.is-review_review_author_details>.inner .review-info .negative,
-.b-review-topic.is-review_review_author_details>.inner .review-info .user-rate-label {
-  color: white;
+.b-review-topic.is-review_review_author_details > .inner .review-info .neutral,
+.b-review-topic.is-review_review_author_details > .inner .review-info .positive,
+.b-review-topic.is-review_review_author_details > .inner .review-info .negative,
+.b-review-topic.is-review_review_author_details
+    > .inner
+    .review-info
+    .user-rate-label {
+    color: white;
 }
 
-.b-review-topic.is-review_review_author_details>.inner .review-info .neutral,
-.b-review-topic.is-review_review_author_details>.inner .review-info .positive,
-.b-review-topic.is-review_review_author_details>.inner .review-info .negative,
-.b-review-topic.is-review_review_author_details>.inner .review-info .user-rate-label,
+.b-review-topic.is-review_review_author_details > .inner .review-info .neutral,
+.b-review-topic.is-review_review_author_details > .inner .review-info .positive,
+.b-review-topic.is-review_review_author_details > .inner .review-info .negative,
+.b-review-topic.is-review_review_author_details
+    > .inner
+    .review-info
+    .user-rate-label,
 .status-name {
-  font-family: IBM_VGA8;
+    font-family: var(--font-main);
 }
 
-.b-review-topic.is-review_review_author_details>.inner .review-info .neutral,
-.b-review-topic.is-review_review_author_details>.inner .review-info .positive,
-.b-review-topic.is-review_review_author_details>.inner .review-info .negative {
-  background: transparent !important;
+.b-review-topic.is-review_review_author_details > .inner .review-info .neutral,
+.b-review-topic.is-review_review_author_details > .inner .review-info .positive,
+.b-review-topic.is-review_review_author_details
+    > .inner
+    .review-info
+    .negative {
+    background: transparent !important;
 }
 
 .b-reviews_navigation .navigation-container,
-.b-reviews_navigation .navigation-node .label, 
+.b-reviews_navigation .navigation-node .label,
 .b-reviews_navigation .navigation-node .count,
 .b-reviews_navigation .navigation-node-all,
 .b-reviews_navigation .navigation-node-positive,
 .b-reviews_navigation .navigation-node-negative,
 .b-reviews_navigation .navigation-node-neutral {
-  font-family: IBM_VGA8;
-  background: #000084 !important;
-  border: none;
+    font-family: var(--font-main);
+    background: var(--bg-navy) !important;
+    border: none;
 }
 
 .b-tag {
-  color: white !important;
-  font-family: IBM_VGA8;
+    color: white !important;
+    font-family: var(--font-main);
 }
 
 .b-tag[href] {
-  border-bottom-color: #fefe54;
+    border-bottom-color: var(--text-yellow);
 }
 
 .b-tag:hover {
-  color: #fefe54 !important;
-  background: #aa5500 !important;
+    color: var(--text-yellow) !important;
+    background: var(--bg-brown) !important;
 }
 
-.b-rate .text-score, .b-rate .score-notice {
-  color: white;
-  font-family: IBM_VGA8;
+.b-rate .text-score,
+.b-rate .score-notice {
+    color: white;
+    font-family: var(--font-main);
 }
 
-.p-animes-show .studio-logo, .p-mangas-show .studio-logo,
-.p-ranobe-show .studio-logo, .b-db_entry>.c-image img,
-.b-db_entry-poster, .p-dashboards-show .v2 .db-update .poster img,
+.p-animes-show .studio-logo,
+.p-mangas-show .studio-logo,
+.p-ranobe-show .studio-logo,
+.b-db_entry > .c-image img,
+.b-db_entry-poster,
+.p-dashboards-show .v2 .db-update .poster img,
 .b-news_wall-topic .poster {
-  box-shadow: 6px 6px 0 #000000;
-  background: white;
+    box-shadow: 6px 6px 0 #000000;
+    background: white;
 }
 
-.b-add_to_list.planned .edit:before, .b-add_to_list.watching .edit:before,
-.b-add_to_list.completed .edit:before, .b-add_to_list.rewatching .edit:before,
-.b-add_to_list.on_hold .edit:before, .b-add_to_list.dropped .edit:before {
-  color: #000000;
+.b-add_to_list.planned .edit:before,
+.b-add_to_list.watching .edit:before,
+.b-add_to_list.completed .edit:before,
+.b-add_to_list.rewatching .edit:before,
+.b-add_to_list.on_hold .edit:before,
+.b-add_to_list.dropped .edit:before {
+    color: var(--text-black);
 }
 
 div.trigger > div.edit-trigger > div.text > span:nth-child(2) {
-  color: #000000;
+    color: var(--text-black);
 }
 
-.b-anime_status_tag.episode, .b-anime_status_tag.studio, .b-anime_status_tag.review {
-  background: #00aaaa !important;
-  color: #000000 !important;;
-  border: none;
+.b-anime_status_tag.episode,
+.b-anime_status_tag.studio,
+.b-anime_status_tag.review {
+    background: var(--bg-cyan) !important;
+    color: var(--text-black) !important;
+    border: none;
 }
 
-.b-anime_status_tag.episode:hover, .b-anime_status_tag.studio:hover, .b-anime_status_tag.review:hover {
-  color: #fefe54 !important;
-  background-color: #aa5500 !important;
+.b-anime_status_tag.episode:hover,
+.b-anime_status_tag.studio:hover,
+.b-anime_status_tag.review:hover {
+    color: var(--text-yellow) !important;
+    background-color: var(--bg-brown) !important;
 }
 
-.b-add_to_list.watching .trigger, .b-add_to_list.watching .option,
-.b-add_to_list.planned .trigger, .b-add_to_list.planned .option {
-  background: #00aaaa;
-  border-color: green;
+.b-add_to_list.watching .trigger,
+.b-add_to_list.watching .option,
+.b-add_to_list.planned .trigger,
+.b-add_to_list.planned .option {
+    background: var(--bg-cyan);
+    border-color: green;
 }
 
 .status-name {
-  color: black;
+    color: black;
 }
 
-.b-add_to_list .trigger-arrow, .b-add_to_list.watching .trigger, .b-add_to_list.watching .option,
+.b-add_to_list .trigger-arrow,
+.b-add_to_list.watching .trigger,
+.b-add_to_list.watching .option,
 .b-add_to_list .plus {
-  color: black;
+    color: black;
 }
 
-.b-add_to_list .trigger, .b-add_to_list .option {
-  font-weight: normal;
+.b-add_to_list .trigger,
+.b-add_to_list .option {
+    font-weight: normal;
 }
 
 .b-catalog_entry-tooltip .inner .line .value .tag,
 .b-catalog_entry-tooltip .inner .line .key {
-  color: #bbbbbb;
+    color: var(--bg-silver);
 }
 
-.b-add_to_list.completed .trigger, .b-add_to_list.completed .option {
-  background: lime;
-  border-color: green;
+.b-add_to_list.completed .trigger,
+.b-add_to_list.completed .option {
+    background: lime;
+    border-color: green;
 }
 
-.b-animes-menu .total-rates, .bar.horizontal .line .x_label {
-  color: #bbbbbb;
+.b-animes-menu .total-rates,
+.bar.horizontal .line .x_label {
+    color: var(--bg-silver);
 }
 
-.b-link_button.dark {
-  color: black;
-}
-
-.p-animes-show .other-names, .p-animes-show .more-info,
-.p-mangas-show .other-names, .p-mangas-show .more-info,
-.p-ranobe-show .other-names, .p-ranobe-show .more-info,
-.p-animes-show .other-names, .p-animes-show .more-info:hover,
-.p-mangas-show .other-names, .p-mangas-show .more-info:hover,
-.p-ranobe-show .other-names, .p-ranobe-show .more-info:hover, 
+.p-animes-show .other-names,
+.p-animes-show .more-info,
+.p-mangas-show .other-names,
+.p-mangas-show .more-info,
+.p-ranobe-show .other-names,
+.p-ranobe-show .more-info,
+.p-animes-show .other-names,
+.p-animes-show .more-info:hover,
+.p-mangas-show .other-names,
+.p-mangas-show .more-info:hover,
+.p-ranobe-show .other-names,
+.p-ranobe-show .more-info:hover,
 .collapsed.tiny {
-  background: transparent !important;
-  color: #ffffff !important;
-  border: none !important;
-  font-family: IBM_VGA8;
-  font-size: 16px;
+    background: transparent !important;
+    color: var(--text-white) !important;
+    border: none !important;
+    font-family: var(--font-main);
+    font-size: 16px;
 }
 
-.p-animes-show .other-names.click-loader, .p-mangas-show .other-names.click-loader, .p-ranobe-show .other-names.click-loader {
-  border: 2px solid black;
-  background: navy;
-  color: white;
-  box-shadow: 5px 5px 0 #000000;
+.p-animes-show .other-names.click-loader,
+.p-mangas-show .other-names.click-loader,
+.p-ranobe-show .other-names.click-loader {
+    border: var(--border-black);
+    background: navy;
+    color: white;
+    box-shadow: 5px 5px 0 #000000;
 }
 
-.p-animes-show .other-names.click-loader:hover, .p-mangas-show .other-names.click-loader:hover, .p-ranobe-show .other-names.click-loader:hover {
+.p-animes-show .other-names.click-loader:hover,
+.p-mangas-show .other-names.click-loader:hover,
+.p-ranobe-show .other-names.click-loader:hover {
     background: black;
-    border: 2px solid black;
+    border: var(--border-black);
 }
 
 .b-db_entry-note .image img {
-  box-shadow: 5px 5px 0 #000000;
+    box-shadow: 5px 5px 0 #000000;
 }
 
 .b-show_more {
-  color: white;
+    color: white;
 }
 
-.b-animes-menu .menu-topics-block .entry .name, .b-link {
-  color: #fefe54;
+.b-animes-menu .menu-topics-block .entry .name,
+.b-link {
+    color: var(--text-yellow);
 }
 
-.b-comments .comments-loader, .b-comments .comments-hider, .b-comments .comments-expander {
-  box-shadow: 5px 5px 0 #000000;
-  background: #bbbbbb;
-  border: 2px solid black;
-  color: black;
+.b-comments .comments-loader,
+.b-comments .comments-hider,
+.b-comments .comments-expander {
+    box-shadow: 5px 5px 0 #000000;
+    background: var(--bg-silver);
+    border: var(--border-black);
+    color: black;
 }
 
-/* Right panel and other */
+/* Right Panel, Misc */
 .b-spoiler label {
-  color: #fefe54;
+    color: var(--text-yellow);
 }
 
 .b-js-link {
-  color: #fefe54;
+    color: var(--text-yellow);
 }
-
 .b-js-link:hover {
-  color: #fefe54;
-  background: #aa5500;
+    color: var(--text-yellow);
+    background: var(--bg-brown);
 }
 
 .b-table th {
-  color: #ffffff;
+    color: var(--text-white);
 }
 
-.menu .unread-count, .menu .contest {
-  background: #00aaaa;
-  color: #ffffff !important;
-  border: 2px solid black;
+.menu .unread-count,
+.menu .contest {
+    background: var(--bg-cyan);
+    color: var(--text-white) !important;
+    border: var(--border-black);
 }
 
-.buttons span, .editor-file {
-  color: #fefe54 !important;
+.buttons span,
+.editor-file {
+    color: var(--text-yellow) !important;
 }
 
-.buttons span:hover, .editor-file:hover {
-  color: #fefe54 !important;
-  background: #aa5500;
+.buttons span:hover,
+.editor-file:hover {
+    color: var(--text-yellow) !important;
+    background: var(--bg-brown);
 }
 
 #cutted_covers_1 .image-cutter {
-  box-shadow: 6px 6px 0 #000000;
-}
-
-.l-top_menu-v2 .menu-mobile .search, .l-top_menu-v2 .menu-mobile .menu, .l-top_menu-v2 .menu-mobile #sign_in, .l-top_menu-v2 .menu-userbox .search, .l-top_menu-v2 .menu-userbox .menu, .l-top_menu-v2 .menu-userbox #sign_in {
-  color: black;
+    box-shadow: 6px 6px 0 #000000;
 }
 
 .b-comments-notifier {
-  background: #00aaaa;
-  font-family: IBM_VGA8;
-  border: 2px solid black;
+    background: var(--bg-cyan);
+    font-family: var(--font-main);
+    border: var(--border-black);
 }
 
 .b-comments-notifier:hover {
-  background: #666666;
+    background: #666666;
 }
 
-/* Video player */
+header.head .misc,
+header.head a.edit {
+    font-family: var(--font-main);
+}
+
+.b-collection_search .field input {
+    background: var(--bg-silver);
+    font-family: var(--font-main);
+    color: var(--text-black);
+    border: var(--border-black);
+    box-shadow: 10px 10px 0 #000000;
+}
+
+.b-collection_search .field input::placeholder {
+    color: #111111;
+}
+
+/* Video Player */
 .b-status-line .section.created_at time:before,
 .b-status-line .section.additional .comments:before,
 .b-status-line .section.changed_at time:before {
-  color: #fefe54;
+    color: var(--text-yellow);
 }
 
-header.head h1, header.head h2 {
-  font-family: IBM_VGA8;
-  color: white;
+header.head h1,
+header.head h2 {
+    font-family: var(--font-main);
+    color: white;
 }
 
-header.head h1 a.back:before, header.head h2 a.back:before {
-  color: white;
+header.head h1 a.back:before,
+header.head h2 a.back:before {
+    color: white;
 }
 
 .l-page .menu-toggler .toggler {
-  background: #00aaaa;
-  border: 2px solid black;
-  border-radius: 0px;
+    background: var(--bg-cyan);
+    border: var(--border-black);
+    border-radius: 0px;
 }
 
 .l-page .menu-toggler .toggler:before {
-  font-family: IBM_VGA8;
-  color: white;
+    font-family: var(--font-main);
+    color: white;
 }
 
 .b-menu_logo img {
-  box-shadow: 10px 10px 0 #000000;
-  background: white;
+    box-shadow: 10px 10px 0 #000000;
+    background: white;
 }
 
 .b-club .logo {
-  box-shadow: 8px 8px 0 #000000;
-}
-
-.purple {
-  color: purple;
+    box-shadow: 8px 8px 0 #000000;
 }
 
 .b-video_player .cc-player_controls .c-control .icon {
-  color: yellow;
+    color: yellow;
 }
 
 .b-video_player .cc-player_controls .episode-num input {
-  background: #bbbbbb;
-  color: black;
+    background: var(--bg-silver);
+    color: black;
 }
 
 .b-video_player .cc-player_controls .episode-num {
-  color: #bbbbbb !important;
+    color: var(--bg-silver) !important;
 }
 
 .b-video_player .cc-player_controls .c-control {
-  color: #fefe54;
+    color: var(--text-yellow);
 }
 
-.p-anime_videos-index .c-anime_video_episodes .title, .p-anime_videos-index .c-videos .title {
-  color: white;
+.p-anime_videos-index .c-anime_video_episodes .title,
+.p-anime_videos-index .c-videos .title {
+    color: white;
 }
 
 .p-anime_videos-index .c-videos .video-variant-switcher {
-  color: lightblue;
+    color: lightblue;
 }
 
-.b-video_variant .video-author, .b-video_variant .episode-num, .b-video_variant .video-id {
-  color: white;
+.b-video_variant .video-author,
+.b-video_variant .episode-num,
+.b-video_variant .video-id {
+    color: white;
 }
 
-.b-video_variant .video-quality.dvd, .b-video_variant .video-quality.bd {
-  background: none;
+.b-video_variant .video-quality.dvd,
+.b-video_variant .video-quality.bd {
+    background: none;
 }
 
 .b-video_variant .video-quality.dvd:before {
-  content: "DVD";
-  color: gold;
+    content: "DVD";
+    color: gold;
 }
 
 .b-video_variant .video-quality.bd:before {
-  content: "BLU-RAY";
-  color: cyan;
+    content: "BLU-RAY";
+    color: cyan;
 }
 
-.b-video_variant .video-quality.bd, .b-video_variant .video-quality.dvd {
-  margin-top: 0px;
-  padding-right: 0px;
+.b-video_variant .video-quality.bd,
+.b-video_variant .video-quality.dvd {
+    margin-top: 0px;
+    padding-right: 0px;
 }
 
-.b-video_variant a>span {
-  padding-right: 5px;
+.b-video_variant a > span {
+    padding-right: 5px;
 }
 
-.p-animes-show .cc.two-videos .c-screenshot, .p-animes-show .cc.two-videos .c-video, .p-mangas-show .cc.two-videos .c-screenshot, .p-mangas-show .cc.two-videos .c-video, .p-ranobe-show .cc.two-videos .c-screenshot, .p-ranobe-show .cc.two-videos .c-video  {
-  box-shadow: 5px 5px 0 #000000;
+.p-animes-show .cc.two-videos .c-screenshot,
+.p-animes-show .cc.two-videos .c-video,
+.p-mangas-show .cc.two-videos .c-screenshot,
+.p-mangas-show .cc.two-videos .c-video,
+.p-ranobe-show .cc.two-videos .c-screenshot,
+.p-ranobe-show .cc.two-videos .c-video {
+    box-shadow: 5px 5px 0 #000000;
 }
 
-/* Other */
-.p-profiles .profile-head .c-history .entry .misc {
-  color: #bbbbbb !important;
-}
-
-.b-options-floated.count {
-  color: #000000;
-  border: none;
-  box-shadow: 5px 5px 0 #000000;
-  padding: 4px;
-}
-
-.b-quote-v2 {
-  background: transparent;
-  border-left-color: #fefe54;
-}
-
-.p-profiles .profile-head .c-history .entry img {
-  box-shadow: 5px 5px 0 #000000;
-}
-
-.p-profiles .profile-head .c-brief header h1.aliases:after {
-  color: white;
-}
-
-.b-stats_bar .bar .third {
-  background: white;
-}
-
-.b-stats_bar.lifetime .bar .first {
-  background: red;
-}
-
-.p-profiles-show .lifetime .cuts .cut {
-  background: black;
-  height: 15px;
-}
-
-.p-profiles-show .lifetime .bar {
-  border: 2px solid black;
-  height: 15px;
-  line-height: 15px;
-  box-shadow: 3px 3px 0 #000000;
-}
-
-.p-profiles-show .profile-content .graph {
-  background: grey;
-  box-shadow: 3px 3px 0 #000000;
-  border: 4px double black;
-}
-
-.p-profiles-show .lifetime .times .time.checked {
-  color: #bbbbbb;
-}
-
-.p-profiles-show .lifetime .times .time {
-  color: white;
-}
-
-.p-profiles-show .lifetime .times .time.checked:before {
-  color: lime;
-  font-family: IBM_VGA8;
-  font-size: 14px;
-}
-
-.p-profiles-show .lifetime .title .value {
-  color: white;
-}
-
-.b-stats_bar .bar {
-  height: 20px;
-  line-height: 20px;
-  border: 2px solid black;
-}
-
-.b-stats_bar .bar .first, .b-stats_bar .bar .second, .b-stats_bar .bar .third {
-  line-height: 20px;
-  font-size: 15px;
-}
-
-.b-feedback>.marker-positioner>.marker-text,
-.b-feedback>.marker-positioner,
-.b-feedback>.hover-activator
-{
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  display: none;
-}
-
-.l-top_menu-v2 .submenu>.entry.active {
-  color: white !important;
+/* Feedback & Misc Styles */
+.b-feedback > .marker-positioner > .marker-text,
+.b-feedback > .marker-positioner,
+.b-feedback > .hover-activator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: none;
 }
 
 .b-quote {
-  background: #bbbbbb;
-  color: black;
+    background: var(--bg-silver);
+    color: black;
 }
 
 .b-quote .b-spoiler label {
-  color: blue;
+    color: blue;
 }
-
 .b-quote .b-link {
-  color: blue !important;
+    color: blue !important;
 }
-
 .b-quote .b-link:hover {
-  color: white !important;
-  background: blue !important;
+    color: white !important;
+    background: blue !important;
 }
 
-.b-quote .b-spoiler .content .before, .b-quote .b-spoiler .content .after {
-  color: navy;
+.b-quote .b-spoiler .content .before,
+.b-quote .b-spoiler .content .after {
+    color: navy;
 }
 
 .p-anime_videos-index .c-video_stats .views_count {
-  color: white;
+    color: white;
 }
 
-.p-user_rates-index .list-lines tr.edit-form form {
-  background: green;
-  color: black;
+.b-quote-v2 {
+    background: transparent;
+    border-left-color: var(--text-yellow);
 }
 
-.b-form .cancel {
-  color: #fefe54;
+.blue {
+    color: cyan;
+}
+.purple {
+    color: purple;
 }
 
-.l-footer .copyright {
-  color: white;
-}
-
-#user_rates_index > section > div > div > div.menu-slide-outer.x199 > div > div > div.subheadline,
-#user_rates_index > section > div > div > div.menu-slide-outer.x199 > div > div > div.subheadline-buttons > div {
-  margin-top: 30px;
-}
-
-#user_rates_index > section > div > div > div.menu-slide-outer.x199 > div > div > div.subheadline-buttons > div {
-  background: #bbbbbb;
-  border: 2px solid #000000;
-  box-shadow: 0 0 0 3px, 5px 6px 0 3px black;
-}
-
-/* Tournamets page */
+/* Tournaments & Matches */
 .p-contests .match-day .match-link.active,
 .p-contests .match-day .match-link:hover,
 .p-contests .match-day .match-link:active {
-  background: #00aaaa;
+    background: var(--bg-cyan);
 }
 
 .b-contest_match .vs .label {
-  color: white;
-  font-family: IBM_VGA8;
+    color: white;
+    font-family: var(--font-main);
 }
 
-.b-contest_match .vs .invitation, .b-contest_match .vs .vote-voted, .b-contest_match .vs .vote-abstained, .b-contest_match .vs .thanks, .b-contest_match .vs .hint, .b-contest_match .vs .action, .b-contest_match .vs .not-selected {
-  color: white;
+.b-contest_match .vs .invitation,
+.b-contest_match .vs .vote-voted,
+.b-contest_match .vs .vote-abstained,
+.b-contest_match .vs .thanks,
+.b-contest_match .vs .hint,
+.b-contest_match .vs .action,
+.b-contest_match .vs .not-selected {
+    color: white;
 }
 
 .b-contest_match .vs .actions .action span {
-  color: lightblue;
+    color: lightblue;
 }
 
 span.name-en,
 span.name-ru {
-  color: #fefe54;
+    color: var(--text-yellow);
 }
 
-.p-contests .match-day .match-link .voted:before, .p-contests .match-day .match-link .winner:before, .p-contests .match-day .match-link .loser:before, .p-contests .match-day .match-link .created:before, .p-contests .match-day .match-link .started:before, .p-contests .match-day .match-link .finished:before {
-  font-family: IBM_VGA8;
+.p-contests .match-day .match-link .voted:before,
+.p-contests .match-day .match-link .winner:before,
+.p-contests .match-day .match-link .loser:before,
+.p-contests .match-day .match-link .created:before,
+.p-contests .match-day .match-link .started:before,
+.p-contests .match-day .match-link .finished:before {
+    font-family: var(--font-main);
 }
 
 .p-contests .match-day .matches-num,
-.p-contests .match-day>.date .to,
-.p-contests .match-day>.date .from {
-  color: white;
+.p-contests .match-day > .date .to,
+.p-contests .match-day > .date .from {
+    color: white;
 }
 
 .p-contests .match-day .match-link .started:before {
-  color: white;
+    color: white;
 }
 
 .b-contest_match .votes-percents {
-  box-shadow: 5px 5px 0 #000000;
-  margin-bottom: 5px;
+    box-shadow: 5px 5px 0 #000000;
+    margin-bottom: 5px;
 }
 
 .b-contest_match .votes-percents .left-part:hover,
 .b-contest_match .votes-percents .left-part {
-  background: blue;
+    background: blue;
 }
 
 .b-contest_match .votes-percents .left-part:hover .right-part,
 .b-contest_match .votes-percents .left-part .right-part {
-  background: pink;
+    background: pink;
 }
 
 .b-contest_match .votes-percents .right-part:before {
-  left: 0px;
+    left: 0px;
 }
 
 .b-contest_match .votes-percents .left-part:hover .right-part:before,
-.b-contest_match .votes-percents .left-part .right-part:before{
-  border-right: none;
+.b-contest_match .votes-percents .left-part .right-part:before {
+    border-right: none;
 }
 
 .b-contest_match .votes-percents .left-part span {
-  color: white;
+    color: white;
 }
-
 .b-contest_match .votes-percents .left-part .right-part span {
-  color: black;
+    color: black;
 }
 
-/* Custom icons */
-
+/* Custom Icons */
 .l-top_menu-v2 .icon-anime:before,
 .l-top_menu-v2 .icon-manga:before,
 .l-top_menu-v2 .icon-ranobe:before {
-  font-family: 'MisakiMincho', serif;
+    font-family: "MisakiMincho", serif;
 }
 
 .l-top_menu-v2 .icon-forum:before,
@@ -1427,114 +1574,155 @@ span.name-ru {
 .l-top_menu-v2 .menu-icon.trigger:before,
 .l-top_menu-v2 .icon-people:before,
 .l-top_menu-v2 .icon-characters:before {
-  font-family: 'Pixelarticons' !important;
-  font-weight: 500 !important;
-  font-size: 18px;
-  background-image: none;
+    font-family: "Pixelarticons" !important;
+    font-weight: 500 !important;
+    font-size: 18px;
+    background-image: none;
 }
 
 .l-top_menu-v2 .icon-forum:before,
 .l-top_menu-v2 .menu-icon.forum:before,
 .comments:before {
-  content: '\eb55' !important;
+    content: "\eb55" !important;
 }
 
 .comments:before {
-  vertical-align: -3px;
+    vertical-align: -3px;
 }
 
 .l-top_menu-v2 .icon-clubs:before,
 .l-top_menu-v2 .icon-people:before {
-  content: '\ebd1';
+    content: "\ebd1";
 }
 
 .l-top_menu-v2 .icon-collections:before {
-  content: '\ebb6';
+    content: "\ebb6";
 }
-
 .l-top_menu-v2 .icon-critiques:before {
-  content: '\ead2';
+    content: "\ead2";
 }
-
 .l-top_menu-v2 .icon-articles:before {
-  content: '\ead8';
+    content: "\ead8";
 }
 
 .l-top_menu-v2 .icon-users:before,
 .l-top_menu-v2 .icon-profile:before,
 .l-top_menu-v2 .icon-characters:before {
-  content: '\ebd0';
+    content: "\ebd0";
 }
 
 .l-top_menu-v2 .icon-contests:before,
 .l-top_menu-v2 .menu-icon.contest:before {
-  content: '\eb23';
+    content: "\eb23";
 }
 
 .l-top_menu-v2 .icon-calendar:before {
-  content: '\ea65';
+    content: "\ea65";
 }
-
 .l-top_menu-v2 .icon-info:before {
-  content: '\eb1b';
+    content: "\eb1b";
 }
 
 .l-top_menu-v2 .icon-moderation:before,
 .profile-actions .ban:before {
-  content: '\ead7';
+    content: "\ead7";
 }
 
 .l-top_menu-v2 .icon-anime_list:before {
-  content: '\eb65';
+    content: "\eb65";
 }
-
 .l-top_menu-v2 .icon-manga_list:before {
-  content: '\ea36';
+    content: "\ea36";
 }
 
 .l-top_menu-v2 .icon-mail:before,
 .l-top_menu-v2 .menu-icon.mail:before,
 .profile-actions .mail:before {
-  content: '\eb44';
+    content: "\eb44";
 }
 
 .l-top_menu-v2 .icon-achievements:before {
-  content: '\ebc7';
+    content: "\ebc7";
 }
 
 .l-top_menu-v2 .icon-settings:before,
 .profile-actions .settings:before {
-  content: '\eba4';
+    content: "\eba4";
 }
 
 .l-top_menu-v2 .icon-site_rules:before {
-  content: '\eb91';
+    content: "\eb91";
 }
-
 .l-top_menu-v2 .icon-faq:before {
-  content: '\ea48';
+    content: "\ea48";
 }
-
 .l-top_menu-v2 .icon-sign_out:before {
-  content: '\eb3b';
+    content: "\eb3b";
 }
-
 .l-top_menu-v2 .icon-home:before {
-  content: '\eb05';
+    content: "\eb05";
 }
 
 .b-to-top.active .arrow:before {
-  content: '\ea21';
-  color: #fefe54;
+    content: "\ea21";
+    color: var(--text-yellow);
 }
 
 .b-link_button.arrow-right:after {
-  content: '\ea1f';
-  vertical-align: -3px;
+    content: "\ea1f";
+    vertical-align: -3px;
 }
 
 .l-top_menu-v2 .menu-icon.trigger:before {
-  background-image: none;
-  content: '\ea48';
-  color: #000000;
+    background-image: none;
+    content: "\ea48";
+    color: var(--text-black);
+}
+
+/* Wide Screens */
+@media only screen and (min-width: 1025px) {
+    .b-main_search ul.popup {
+        background: var(--bg-silver);
+    }
+    .b-to-top.active .slide:hover::before {
+        opacity: 0;
+    }
+}
+
+/* Tablet / Desktop Boundary */
+@media screen and (max-width: 1024px) {
+    body {
+        background: navy;
+    }
+}
+
+/* Mobile Devices */
+@media screen and (max-width: 1023px) {
+    .p-dashboards-show .v2 .mobile-slider-prev:after,
+    .p-dashboards-show .v2 .mobile-slider-next:after {
+        color: black;
+        background: var(--bg-silver);
+        padding: 3px 3px 0 3px;
+        border: 1px solid black;
+        box-shadow:
+            0 0 0 0,
+            2px 3px 0 1px black;
+    }
+
+    .p-dashboards-show .v2 .mobile-slider-prev:before,
+    .p-dashboards-show .v2 .mobile-slider-next:before,
+    .p-dashboards-show .v2 .mobile-slider-next.bright:before,
+    .p-dashboards-show .v2 .mobile-slider-prev.bright:before {
+        background: none;
+    }
+}
+
+/* Small Portrait Screens */
+@media screen and (max-width: 480px) and (orientation: portrait) {
+    .c-actions .new_comment:after,
+    .c-actions .new_review:after,
+    .c-actions .fav-add:after,
+    .c-actions .edit:after {
+        color: var(--text-yellow);
+    }
 }
