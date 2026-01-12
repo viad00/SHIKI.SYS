@@ -909,6 +909,7 @@ a.b-link_button {
 
 .b-stats_bar .bar .third {
     background: white;
+    color: var(--text-black);
 }
 .b-stats_bar.lifetime .bar .first {
     background: red;
@@ -1573,7 +1574,18 @@ span.name-ru {
 .profile-actions .ban:before,
 .l-top_menu-v2 .menu-icon.trigger:before,
 .l-top_menu-v2 .icon-people:before,
-.l-top_menu-v2 .icon-characters:before {
+.l-top_menu-v2 .icon-characters:before,
+.b-subposter-actions .new_comment:before,
+.b-subposter-actions .new_review:before,
+.b-subposter-actions .new_critique:before,
+.b-subposter-actions .fav-add:before,
+.b-subposter-actions .edit:before,
+.editor-controls .editor-link:before,
+.editor-controls .editor-image:before,
+.editor-controls .editor-quote:before,
+.editor-controls .editor-spoiler:before,
+.editor-controls .editor-file:before,
+.editor-controls .editor-smiley:before {
     font-family: "Pixelarticons" !important;
     font-weight: 500 !important;
     font-size: 18px;
@@ -1677,6 +1689,63 @@ span.name-ru {
     background-image: none;
     content: "\ea48";
     color: var(--text-black);
+}
+
+.b-subposter-actions .new_comment:before {
+    content: "\ea9d";
+}
+.b-subposter-actions .new_review:before {
+    content: "\eb6b";
+}
+.b-subposter-actions .new_critique:before {
+    content: "\ea26";
+}
+.b-subposter-actions .fav-add:before {
+    content: "\eb03";
+}
+.b-subposter-actions .edit:before {
+    content: "\ead2";
+}
+
+.editor-controls .editor-bold:before,
+.editor-controls .editor-italic:before,
+.editor-controls .editor-underline:before,
+.editor-controls .editor-strike:before {
+    font-family: var(--font-main);
+    font-size: 20px;
+    background-image: none;
+    vertical-align: 3px;
+}
+.editor-controls .editor-bold:before {
+    content: "B";
+}
+.editor-controls .editor-italic:before {
+    content: "I";
+}
+.editor-controls .editor-underline:before {
+    content: "U";
+}
+.editor-controls .editor-strike:before {
+    content: "S";
+}
+
+.editor-controls .editor-link:before {
+    content: "\eb34";
+}
+.editor-controls .editor-image:before {
+    content: "\eb17";
+}
+.editor-controls .editor-quote:before {
+    content: "\eb54";
+}
+.editor-controls .editor-spoiler:before {
+    content: "\ead7";
+}
+.editor-controls .editor-file:before {
+    content: "\ebcc";
+}
+.editor-controls .editor-smiley:before {
+    content: "\eb5b";
 }
 
 /* Wide Screens */
