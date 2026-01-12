@@ -1689,6 +1689,7 @@ span.name-ru {
     background-image: none;
     content: "\ea48";
     color: var(--text-black);
+    font-size: 22px;
 }
 
 .b-subposter-actions .new_comment:before {
